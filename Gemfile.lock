@@ -164,8 +164,8 @@ PLATFORMS
 DEPENDENCIES
   bcrypt-ruby
   better_errors
-  capybara
   binding_of_caller
+  capybara
   coffee-rails (~> 3.2.1)
   database_cleaner
   factory_girl_rails

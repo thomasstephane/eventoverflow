@@ -2,34 +2,38 @@ require 'spec_helper'
 
 describe 'User' do 
 
-  context 'signup page' do
-    it 'sees a signup form' do
-      visit new_user_path
-      page.has_content?('div#user-signup')
+  context 'signing up' do
+    before { visit new_user_path }
+    
+    describe 'with invalid information' do
+      it 'should not create a user' do
+        expect { click_button 'Signup' }.not_to change(User, :count)
+      end
     end
 
-    it 'throws an error if no username present' do
-      visit new_user_path
-      fill_in('password', with => 'test')
-      fill_in('password_confirmation', with => 'test')
-      click_button 'Signup'
-      expect { raise} # no username
-    end
+    describe 'with valid information' do
+      before do
+        fill_in 'user_username', with: 'Example User'
+        fill_in 'user_password', with: '1234'
+        fill_in 'user_password_confirmation', with: '1234'
+      end
 
-    it 'throws an error if no password present' do
-      visit new_user_path
-      fill_in('username', with => 'test')
-      click_button 'Signup'
-      expect { raise} # no password
+      it 'should create a user' do
+        expect { click_button 'Signup'}.to change(User, :count).by(1)
+      end
     end
   end
 
 
-  # context 'login page' do
-  #   it 'sees a login form' do
-  #     visit
-  #     page.has_content?('div#')
-  # end
+  context 'logging in' do
+    before { visit user_login_path }
+
+    describe 'with invalid information' do
+      it 'should not login the user' do
+        expect { click_button 'Login' }.to  
+      end
+    end
+  end
 
 
 
