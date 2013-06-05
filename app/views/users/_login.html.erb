@@ -1,28 +1,21 @@
 <ul>
-  <%= form_for @user do |f| %>
-
-    <ul>
-      <% if @user && @user.invalid? %>
-        <% @user.errors.full_messages do |message| %>
-          <li>
-            <p><%= message %></p>
-          </li>
-        <% end %>
-      <% end %>
-    </ul>
-
+  <%= form_tag session_create_path, :method => :post do %>
+    <% if @login_error %>
+      <p>
+        <%= @login_error %>
+      </p>
+    <% end %>
+    
     <li>
-      <%= f.label :username %><br />
-      <%= f.text_field :username %>
+      <%= label_tag 'name' %>:<br/>
+      <%= text_field_tag 'username', nil, {:required => true} %>
     </li>
-
     <li>
-      <%= f.label :password %><br />
-      <%= f.password_field :password %>
+      <%= label_tag 'password' %>:<br/>
+      <%= password_field_tag 'password', nil, {:required => true} %>
     </li>
-
     <li>
-      <%= f.submit 'Login' %>
+      <%= submit_tag 'Login' %>
     </li>
   <% end %>
 </ul>

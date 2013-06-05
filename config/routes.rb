@@ -8,4 +8,5 @@ Eventsoverflow::Application.routes.draw do
   end
 
   get '/login' => 'users#login', :as => :user_login
+  post '/login' => 'session#create', :as => :session_create
 end
