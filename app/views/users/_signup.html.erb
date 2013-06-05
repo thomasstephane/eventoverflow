@@ -13,17 +13,17 @@
 
     <li>
       <%= f.label :username %><br/ >
-      <%= f.text_field :username %>
+      <%= f.text_field :username, {:required => true} %>
     </li>
 
     <li>
       <%= f.label :password %><br />
-      <%= f.password_field :password %>
+      <%= f.password_field :password, {:required => true} %>
     </li>
 
     <li>
       <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation %>
+      <%= f.password_field :password_confirmation, {:required => true} %>
     </li>
 
     <li>
