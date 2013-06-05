@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def new
-
+    
   end
 
   def edit
@@ -16,10 +16,10 @@ class UsersController < ApplicationController
   end
 
   def update
-  
+
   end
 
   def destroy
-  
+
   end
 end
