@@ -40,4 +40,11 @@ describe "Event" do
       page.should have event.description
     end
   end
+
+  context "on homepage" do
+    it "sees a list of recent event titles" do
+      visit root_url
+      page.should have_content event.title
+    end
+  end
 end
