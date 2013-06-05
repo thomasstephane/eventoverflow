@@ -25,7 +25,6 @@ gem 'jquery-rails'
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby'
 
-
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
@@ -39,6 +38,9 @@ gem 'bcrypt-ruby'
 # gem 'debugger'
 
 group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+
   gem 'sextant'
   gem 'better_errors'
   gem 'pry-rails'
