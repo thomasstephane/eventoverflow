@@ -1,0 +1,8 @@
+<h1>This Event</h1>
+
+<li>title: <%= @event.title %></li>
+<li>description: <%= @event.description %></li>
+
+
+<li><%= link_to 'Edit', edit_event_path(@event) %></li>
+<li><%= link_to 'Delete', @event, :method => :delete %></li>
