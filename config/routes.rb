@@ -6,4 +6,7 @@ Eventsoverflow::Application.routes.draw do
 
   resources :users, :except => [:index] do
   end
+
+  root :to => 'events#index'
+
 end

@@ -1,6 +1,8 @@
 class EventsController < ApplicationController
   protect_from_forgery
 
+  include EventHelper
+
   def index
     @events = Event.all
   end
@@ -15,10 +17,15 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(params[:event])
-    @event.save
-    @events = Event.all
-    render :index
+    if invalid_event(params[:event]) != []
+      @errors = invalid_event(params[:event])
+      new
+    else
+      @event = Event.new(params[:event])
+      @event.save
+      @events = Event.all
+      render :index
+    end
   end
   
   def edit
