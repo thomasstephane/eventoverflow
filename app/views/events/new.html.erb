@@ -1,0 +1,9 @@
+<h1>Create an event!</h1>
+<%= render 'form' %>
+<% if @errors %>
+  <ul>
+    <% @errors.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
