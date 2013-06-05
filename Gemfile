@@ -19,4 +19,6 @@ group :development, :test do
   gem 'pry-rails'
   gem 'database_cleaner'
   gem 'quiet_assets'
+  gem 'capybara'
+  gem 'binding_of_caller'
 end
