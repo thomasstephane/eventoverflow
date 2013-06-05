@@ -1,3 +1,2 @@
-class CommentsController < ActionController::Base
-  protect_from_forgery
+class CommentsController < ApplicationController
 end

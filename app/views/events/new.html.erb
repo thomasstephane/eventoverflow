@@ -1,16 +1,2 @@
 <h1>Create an event!</h1>
 <%= render 'form' %>
-<%= form_for(@event)  do |f| %>
-
-  <p>  
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </p>
-
-  <%= f.submit %>
-
-<% end %>

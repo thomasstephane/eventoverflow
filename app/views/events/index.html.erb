@@ -1,11 +1,11 @@
 <h1>All Events</h1>
 
-<% @events.each do |e| %>
+<% @events.reverse.each do |e| %>
 <p>
 <li>title: <%= e.title %></li>
 
 <li><%= link_to 'Show', e %></li>
 <li><%= link_to 'Edit', edit_event_path(e) %></li>
-<li><%= link_to 'Delete', e, :confirm => 'Are you sure?', :method => :delete %></li>
+<li><%= link_to 'Delete', e, :method => :delete %></li>
 </p>
 <% end %>
