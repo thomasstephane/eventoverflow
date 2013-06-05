@@ -6,4 +6,6 @@ Eventsoverflow::Application.routes.draw do
 
   resources :users, :except => [:index] do
   end
+
+  get '/login' => 'users#login', :as => :user_login
 end

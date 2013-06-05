@@ -1,21 +1,3 @@
 <div id='user-signup'>
-  <ul>
-    <%= form_for @user do |f| %>
-    <li>
-      <%= f.label :username %><br/ >
-      <%= f.text_field :username %>
-    </li>
-    <li>
-      <%= f.label :password %><br />
-      <%= f.password_field :password %>
-    </li>
-    <li>
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation %><br />
-    </li>
-    <li>
-      <%= f.submit 'Signup' %>
-    </li>
-    <% end %>
-  </ul>
+  <%= render 'signup' %>
 </div>
