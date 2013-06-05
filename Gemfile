@@ -41,7 +41,7 @@ gem 'bcrypt-ruby'
 group :development, :test do
   gem 'sextant'
   gem 'better_errors'
-  gem 'pry_rails'
+  gem 'pry-rails'
   gem 'database_cleaner'
   gem 'quiet_assets'
 end
