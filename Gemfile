@@ -20,4 +20,5 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'quiet_assets'
   gem 'capybara'
+  gem 'binding_of_caller'
 end
