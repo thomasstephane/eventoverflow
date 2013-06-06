@@ -8,7 +8,7 @@ class SessionController < ApplicationController
     else
       @login_error = 'Invalid username or password.'
 
-      render '/users/login.html.erb'
+      render 'home/index'
     end
   end
 

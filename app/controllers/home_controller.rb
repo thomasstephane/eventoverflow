@@ -1,12 +1,9 @@
 class HomeController < ApplicationController
 
   def index
+    @user = User.new
   end
 
   def about
-  end
-
-  def home
-    if 
   end
 end

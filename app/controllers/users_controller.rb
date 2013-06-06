@@ -8,12 +8,8 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to user_path(@user)
     else
-      render new_user_path(@user)
+      render root_path
     end
-  end
-
-  def new
-    @user = User.new
   end
 
   def edit
