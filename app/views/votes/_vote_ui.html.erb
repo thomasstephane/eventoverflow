@@ -1,4 +1,2 @@
-<div class="vote_arrows">
-  <%= button_to "up vote", "path goes here", :method => "post" %>
-  <%= button_to "down vote", "path goes here", :method => "post" %>
-</div>
+<%= button_to "up vote",   votes_path,   :method => "post" %>
+<%= button_to "down vote", votes_path, :method => "post" %>

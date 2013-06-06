@@ -1,3 +1,8 @@
 <div class="row">
-  <p><%= comment.comment %></p>
+  <table>
+    <tr>
+      <td><%= comment.comment %></td>
+      <td><%= render 'votes/vote_ui' %></td>
+    </tr>
+  </table>
 </div>

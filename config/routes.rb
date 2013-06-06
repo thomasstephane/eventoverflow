@@ -6,13 +6,8 @@ Eventsoverflow::Application.routes.draw do
   end
 
   resource :sessions, :only => [ :new, :create, :destroy]
-
-  resources :users, :except => [:index, :new] do
-  end
-
-  # user authentication
-  # post '/login' => 'session#create', :as => :session_create
-  # get '/logout' => 'session#destroy', :as => :session_destroy
+  resources :users, :except => [:index, :new]
+  resources :votes, :only => [:create, :destroy]
 
   # homepage
   get '/about' => 'home#about'
