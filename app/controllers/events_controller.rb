@@ -21,7 +21,7 @@ class EventsController < ApplicationController
       else
         @event = Event.new(params[:event])
         @event.save
-        current_user.events << @event
+        current_user.created_events << @event
         current_user.save
         @events = Event.all
         redirect_to root_path

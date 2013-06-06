@@ -23,6 +23,8 @@ group :development, :test do
   gem "capybara"
   gem 'debugger'
   gem 'selenium-webdriver'
-  gem 'shoulda-matchers'
-  gem 'shoulda'
+end
+
+group :test do
+  gem 'shoulda', :require => false
 end

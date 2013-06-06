@@ -188,5 +188,4 @@ DEPENDENCIES
   selenium-webdriver
   sextant
   shoulda
-  shoulda-matchers
   uglifier (>= 1.0.3)
