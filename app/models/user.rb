@@ -6,4 +6,6 @@ class User < ActiveRecord::Base
   has_many :events
   has_many :comments
   has_many :events, :through => :comments
+
+  validates :username, :presence => true
 end
