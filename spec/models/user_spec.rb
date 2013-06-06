@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe 'User' do 
+  # it { should have_many(:comments) }
+  
   context "is instantiating" do
     it "should have a username" do
       user = User.create(password: '1234')
@@ -12,4 +14,6 @@ describe 'User' do
       expect(user).to be_invalid
     end
   end
+
+
 end
