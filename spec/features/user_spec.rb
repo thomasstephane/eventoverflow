@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'User' do 
 
   context 'signing up' do
-    before { visit new_user_path }
+    before { visit root_path }
     
     describe 'with invalid information' do
       it 'should not create a user' do
@@ -30,14 +30,14 @@ describe 'User' do
 
     describe 'with invalid information' do
       it 'should not login the user' do
-        visit user_login_path
+        visit root_path
         click_button 'Login'
         expect(page).to have_content('Invalid')
       end
     end
 
-    describe 'with valid information', :js => true do
-      before { visit user_login_path }
+    describe 'with valid information' do
+      before { visit root_path }
       it "does something cool" do
         fill_in 'username', with: user.username
         fill_in 'password', with: user.password

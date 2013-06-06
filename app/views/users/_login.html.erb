@@ -1,10 +1,12 @@
 <ul>
   <%= form_tag session_create_path, :method => :post do %>
-    <% if @login_error %>
-      <p>
-        <%= @login_error %>
-      </p>
-    <% end %>
+    <% if flash[:errors_login] %>
+      <ul>
+        <% flash[:errors_login].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+      <% end %>
 
     <li>
       <%= text_field_tag 'username', nil, {:required => true, :placeholder => 'Username'} %>

@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to user_path(@user)
     else
-      flash[:errors] = @user.errors.full_messages
+      flash[:errors_signup] = @user.errors.full_messages
       redirect_to root_path
     end
   end

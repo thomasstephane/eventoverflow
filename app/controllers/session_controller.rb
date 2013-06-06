@@ -6,14 +6,14 @@ class SessionController < ApplicationController
       session[:id] = @user.id
       redirect_to user_path(@user)
     else
-      @login_error = 'Invalid username or password.'
+      flash[:errors_login] = ['Invalid username or password.']
 
-      render 'home/index'
+      redirect_to root_path
     end
   end
 
   def destroy
     session.clear
-    redirect_to root_url
+    redirect_to root_path
   end
 end
