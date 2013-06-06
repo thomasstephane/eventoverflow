@@ -5,12 +5,14 @@ Eventsoverflow::Application.routes.draw do
     resources :comments, :only => [:show, :create]
   end
 
+  resource :sessions, :only => [ :new, :create, :destroy]
+
   resources :users, :except => [:index, :new] do
   end
 
   # user authentication
-  post '/login' => 'session#create', :as => :session_create
-  get '/logout' => 'session#destroy', :as => :session_destroy
+  # post '/login' => 'session#create', :as => :session_create
+  # get '/logout' => 'session#destroy', :as => :session_destroy
 
   # homepage
   get '/about' => 'home#about'
