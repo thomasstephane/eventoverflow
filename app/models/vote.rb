@@ -1,4 +1,4 @@
-class Votes < ActiveRecord::Base
+class Vote < ActiveRecord::Base
   attr_accessible :voteable_type, :voteable_id, :user_id
    
   validates :voteable_type, :presence => true
