@@ -1,12 +1,9 @@
 <%= form_for @event do |f| %>
-  <p>  
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </p>
+  <%= f.text_field(:title, :placeholder =>  "Title") %>
+  <%= f.text_area :description, :placeholder => "Description" %>
+  <%= f.datetime_select :starts_at %>
+  <%= f.text_field :duration, :placeholder => "Duration" %>
+  <%= f.text_area :location, :placeholder => "Location" %>
   <%= f.submit %>
 
 <% end %>

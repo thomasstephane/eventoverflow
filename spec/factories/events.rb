@@ -6,6 +6,9 @@ FactoryGirl.define do
   factory :event do
     title  "My New Event"
     description "My event details"
+    starts_at Time.now.to_date.to_time
+    duration 2
+    location "My event address"
     user_id 1
   end
   factory :comment do

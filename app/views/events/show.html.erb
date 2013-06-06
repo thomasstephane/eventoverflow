@@ -2,6 +2,9 @@
 
 <li>title: <%= @event.title %></li>
 <li>description: <%= @event.description %></li>
+<li>starts at: <%= @event.starts_at %></li>
+<li>duration: <%= @event.duration %></li>
+<li>location: <%= @event.location %></li>
 
 
 <li><%= link_to 'Edit', edit_event_path(@event) %></li>
