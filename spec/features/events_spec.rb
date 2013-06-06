@@ -12,6 +12,7 @@ describe "Event" do
       current_path.should include(events_path)
     end
 
+
     it "should warn user if it has no title" do
       visit new_event_path
       fill_in 'Description', with: "my event description"
@@ -23,8 +24,10 @@ describe "Event" do
       visit new_event_path
       fill_in 'Title', with: "my event"
       click_button 'Create Event'
+      # debugger
       page.should have_content 'Your event should have a description'
     end
+
   end
 
   context "when view" do

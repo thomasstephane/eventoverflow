@@ -5,41 +5,18 @@ describe "Comment" do
   let!(:event) { create(:event, :title => "DBC Party", :description => "this is going to be phat") }
 
   context "when create" do
-    it "should redirect to the event show page" do
-      visit new_comment_path
+    it "should be rendered on event show page" do
+      visit event_path(event)
       fill_in 'Comment', with: "this is a comment from the comments testing page2"
       click_button 'Create Comment'
-      current_path.should include(event_path)
+      page.should have_content comment.comment
     end
 
     it "should warn user if it has no comment" do
-      visit new_comment_path
-      fill_in 'Comment', with: "this is a comment from the comments testing page3"
+      visit event_path(event)
+      # fill_in 'Comment', with: ""
       click_button 'Create Comment'
-      page.should have_content 'Your comment should have text'
-    end
-      
-  end
-
-  context "when view" do
-    it "should have the comment" do
-      visit comment_url(comment)
-      page.should have_content comment.comment
-    end
-  end
-
-  context "when edit" do 
-    it "should have the comment" do
-      comment.save
-      visit edit_comment_path(event)
-      page.should have_content comment.comment
-    end
-  end
-
-  context "on event page" do
-    it "sees a list of recent comments" do
-      visit event_path
-      page.should have_content comment.comment
-    end
+      page.should have_content 'Your comment should have a comment'
+    end      
   end
 end

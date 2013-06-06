@@ -9,6 +9,6 @@
 
 <%= render 'comments/form' %>
 
-<% @event.comments.each do |comment| %>
+<% @event.comments.reverse.each do |comment| %>
 <%= render 'comments/show', :comment => comment %>
 <% end %>
