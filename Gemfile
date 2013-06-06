@@ -23,4 +23,5 @@ group :development, :test do
   gem "capybara"
   gem 'debugger'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers'
 end

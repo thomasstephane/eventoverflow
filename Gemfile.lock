@@ -142,6 +142,8 @@ GEM
     sextant (0.2.3)
       activesupport (>= 3.2)
       rails (>= 3.2)
+    shoulda-matchers (2.0.0)
+      activesupport (>= 3.0.0)
     slop (3.4.5)
     sprockets (2.2.2)
       hike (~> 1.2)
@@ -181,4 +183,5 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   selenium-webdriver
   sextant
+  shoulda-matchers
   uglifier (>= 1.0.3)
