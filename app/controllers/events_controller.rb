@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   protect_from_forgery
 
-  include EventHelper
+  include FormHelper
 
   def index
     @events = Event.all
@@ -9,6 +9,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @comment = Comment.new
   end
 
   def new
@@ -17,8 +18,8 @@ class EventsController < ApplicationController
   end
 
   def create
-    if invalid_event(params[:event]) != []
-      @errors = invalid_event(params[:event])
+    if invalid_form(params[:event]) != []
+      @errors = invalid_form(params[:event])
       new
     else
       @event = Event.new(params[:event])
