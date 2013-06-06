@@ -16,4 +16,9 @@ FactoryGirl.define do
     user_id 1
     event_id 1
   end
+  factory :vote do
+    user_id 1
+    voteable_type ["Event","Comment"].sample
+    voteable_id 1
+  end
 end
