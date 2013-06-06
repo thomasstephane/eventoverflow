@@ -5,8 +5,9 @@ FactoryGirl.define do
   end
   factory :event do
     title  "My New Event"
-    description "My evnet details"
-    user_id   1
+    description "My event details"
+    id 1
+    user_id 1
   end
   factory :comment do
     comment "My comment on an event"
