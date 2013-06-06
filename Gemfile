@@ -24,4 +24,5 @@ group :development, :test do
   gem 'debugger'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
+  gem 'shoulda'
 end
