@@ -1,7 +1,7 @@
 Eventsoverflow::Application.routes.draw do
   root :to => 'home#index'
 
-  resources :events do
+  resources :events, :except => :index do
     resources :comments, :only => [:show, :create]
   end
 

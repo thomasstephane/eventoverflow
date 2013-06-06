@@ -1,11 +1,6 @@
 class EventsController < ApplicationController
-  protect_from_forgery
 
   include FormHelper
-
-  def index
-    @events = Event.all
-  end
 
   def show
     @event = Event.find(params[:id])
@@ -18,14 +13,14 @@ class EventsController < ApplicationController
   end
 
   def create
-    if invalid_form(params[:event]) != []
-      @errors = invalid_form(params[:event])
+    if invalid_form(params[:event], "event") != []
+      @errors = invalid_form(params[:event], "event")
       new
     else
       @event = Event.new(params[:event])
       @event.save
       @events = Event.all
-      render :index
+      redirect_to root_path
     end
   end
   

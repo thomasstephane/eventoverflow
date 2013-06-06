@@ -9,7 +9,7 @@ describe "Event" do
       fill_in 'Title', with: "my event"
       fill_in 'Description', with: "my event description"
       click_button 'Create Event'
-      current_path.should include(events_path)
+      current_path.should include(root_path)
     end
 
 

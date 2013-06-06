@@ -9,8 +9,8 @@ class CommentsController < ApplicationController
   def create
     @comment = params[:comment]
     @event = Event.find(params[:event_id])
-    if invalid_form_comment(@comment) != []
-      @errors = invalid_form_comment(@comment)
+    if invalid_form(@comment, "comment") != []
+      @errors = invalid_form(@comment, "comment")
       @comment = Comment.new
       render 'events/show'
     else
