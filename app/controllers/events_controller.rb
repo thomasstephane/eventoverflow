@@ -2,6 +2,7 @@ class EventsController < ApplicationController
 
   include FormHelper
   include UsersHelper
+  include VotesHelper
 
   def show
     @event = Event.find(params[:id])
@@ -46,5 +47,13 @@ class EventsController < ApplicationController
     @event.destroy
     redirect_to events_path    
   end
-
+  
+  def vote
+    vote = find_voteable
+    if vote.save
+      render :json => {}
+    else
+      render :json => {}
+    end
+  end
 end

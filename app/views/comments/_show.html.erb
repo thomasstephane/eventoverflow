@@ -2,7 +2,7 @@
   <table>
     <tr>
       <td><%= comment.comment %></td>
-      <td><%= render 'votes/vote_comment' %></td>
+      <td><%= render :partial => 'votes/vote_comment', :locals => { :comment_id => comment.id } %></td>
     </tr>
   </table>
 </div>

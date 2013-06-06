@@ -12,6 +12,6 @@ Eventsoverflow::Application.routes.draw do
   # homepage
   get '/about' => 'home#about'
 
-  post '/events/vote'   => 'event#vote'
-  post '/comments/vote' => 'comment#vote'
+  post '/events/vote'   => 'events#vote'
+  post '/comments/vote' => 'comments#vote'
 end

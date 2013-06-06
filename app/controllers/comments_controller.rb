@@ -1,7 +1,9 @@
 class CommentsController < ApplicationController
   protect_from_forgery
 
+  include UsersHelper
   include FormHelper
+  include VotesHelper
 
   def show
   end
@@ -18,6 +20,15 @@ class CommentsController < ApplicationController
       @comment.save
       @comments = Comment.all
       redirect_to event_path(@event)
+    end
+  end
+
+  def vote
+    vote = find_voteable
+    if vote.save
+      render :json => {}
+    else
+      render :json => {}
     end
   end
 end

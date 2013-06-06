@@ -1,1 +1,1 @@
-<%= button_to "Up Vote!", comments_vote_path, :voteable_type => 'comment', :method => "post" %>
+<%= button_to "Up Vote!", comments_vote_path(:id => comment_id, :voteable_type => 'Comment'), :method => "post", :remote => true %>

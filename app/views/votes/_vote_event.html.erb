@@ -1,1 +1,1 @@
-<%= button_to "Up Vote!", events_vote_path, :voteable_type => 'event', :method => "post" %>
+<%= button_to "Up Vote!", events_vote_path(:id => event_id, :voteable_type => 'Event'), :method => "post", :remote => true %>

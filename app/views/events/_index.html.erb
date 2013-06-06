@@ -5,6 +5,6 @@
     <li><%= link_to e.title, e %></li>
     <li><%= link_to 'Edit', edit_event_path(e) %></li>
     <li><%= link_to 'Delete', e, :method => :delete %></li>
-    <li><%= render 'votes/vote_comment' %></li>
+    <li><%= render :partial => 'votes/vote_event' , :locals => {:event_id => e.id }%></li>
   </p>
 <% end %>
