@@ -3,6 +3,9 @@ require 'spec_helper'
 describe User do
 
   it { should have_many(:comments) }
+  it { should have_many(:votes) }
+  it { should have_many(:created_events) }
+  it { should have_many(:commented_events) }
   
   context "is instantiating" do
     
