@@ -12,18 +12,15 @@
     </ul>
 
     <li>
-      <%= f.label :username %><br/ >
-      <%= f.text_field :username, {:required => true} %>
+      <%= f.text_field :username, {:required => true, :placeholder => 'Username'} %>
     </li>
 
     <li>
-      <%= f.label :password %><br />
-      <%= f.password_field :password, {:required => true} %>
+      <%= f.password_field :password, {:required => true, :placeholder => 'Password'} %>
     </li>
 
     <li>
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, {:required => true} %>
+      <%= f.password_field :password_confirmation, {:required => true, :placeholder => 'Password Confirmation'} %>
     </li>
 
     <li>
