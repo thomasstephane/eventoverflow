@@ -1,9 +1,10 @@
 <h1>All Events</h1>
 
 <% @events.reverse.each do |e| %>
-<p>
-<li><%= link_to e.title, e %></li>
-<li><%= link_to 'Edit', edit_event_path(e) %></li>
-<li><%= link_to 'Delete', e, :method => :delete %></li>
-</p>
+  <p>
+    <li><%= link_to e.title, e %></li>
+    <li><%= link_to 'Edit', edit_event_path(e) %></li>
+    <li><%= link_to 'Delete', e, :method => :delete %></li>
+    <li><%= render 'votes/vote_comment' %></li>
+  </p>
 <% end %>

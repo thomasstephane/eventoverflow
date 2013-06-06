@@ -7,9 +7,11 @@ Eventsoverflow::Application.routes.draw do
 
   resource :sessions, :only => [ :new, :create, :destroy]
   resources :users, :except => [:index, :new]
-  resources :votes, :only => [:create, :destroy]
+  resources :votes, :only => [:create]
 
   # homepage
   get '/about' => 'home#about'
 
+  post '/events/vote'   => 'event#vote'
+  post '/comments/vote' => 'comment#vote'
 end
