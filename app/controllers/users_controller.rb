@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  protect_from_forgery
+
+  include UsersHelper
+
   def create
     @user = User.new params[:user]
     if @user.save
