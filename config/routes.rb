@@ -1,7 +1,6 @@
 Eventsoverflow::Application.routes.draw do
   resources :events do
-    resources :comments do
-    end
+    resources :comments, :only => [:show, :create]
   end
 
   resources :users, :except => [:index] do

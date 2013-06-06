@@ -6,3 +6,9 @@
 
 <li><%= link_to 'Edit', edit_event_path(@event) %></li>
 <li><%= link_to 'Delete', @event, :method => :delete %></li>
+
+<%= render 'comments/form' %>
+
+<% @event.comments.each do |comment| %>
+<%= render 'comments/show', :comment => comment %>
+<% end %>
