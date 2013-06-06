@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
 
   include FormHelper
+  include UsersHelper
 
   def show
     @event = Event.find(params[:id])
@@ -13,13 +14,19 @@ class EventsController < ApplicationController
   end
 
   def create
-    if invalid_form(params[:event], "event") != []
-      @errors = invalid_form(params[:event], "event")
-      new
+    if current_user
+      if invalid_form(params[:event], "event") != []
+        @errors = invalid_form(params[:event], "event")
+        new
+      else
+        @event = Event.new(params[:event])
+        @event.save
+        current_user.events << @event
+        current_user.save
+        @events = Event.all
+        redirect_to root_path
+      end
     else
-      @event = Event.new(params[:event])
-      @event.save
-      @events = Event.all
       redirect_to root_path
     end
   end
