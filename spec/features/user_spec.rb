@@ -26,17 +26,25 @@ describe 'User' do
 
 
   context 'logging in' do
-    before { visit user_login_path }
+    let(:user) { create(:user) }
 
     describe 'with invalid information' do
       it 'should not login the user' do
+        visit user_login_path
         click_button 'Login'
         expect(page).to have_content('Invalid')
       end
     end
+
+    describe 'with valid information', :js => true do
+      before { visit user_login_path }
+      it "does something cool" do
+        fill_in 'username', with: user.username
+        fill_in 'password', with: user.password
+        click_button 'Login'
+
+        expect(page).to have_content(user.username)
+      end
+    end 
   end
-
-
-
-  
 end
