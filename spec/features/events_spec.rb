@@ -54,8 +54,14 @@ describe "Event" do
   end
 
   context "on homepage" do
-    it "sees a list of recent event titles" do
+    let(:user) { create(:user) }
+
+    it "sees a list of recent event titles when connected" do
       visit root_url
+      fill_in 'username', with: user.username
+      fill_in 'password', with: user.password
+      click_button 'Login'
+      click_link 'Home'
       page.should have_content event.title
     end
   end

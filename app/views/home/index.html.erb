@@ -1,14 +1,17 @@
 <div class='container'>
   <div class='form-box'>
-    <div class='signup'>
-      <p>Sign up</p>
-      <%= render '/users/signup' %>
-    </div>
+    <% if session[:user_id] %>
+      <%= render :partial => 'events/index' %>
+    <% else %>
+      <div class='signup'>
+        <p>Sign up</p>
+        <%= render '/users/signup' %>
+      </div>
 
-    <div class='login'>
-      <p>Login</p>
-      <%= render '/users/login' %>
-    </div>
+      <div class='login'>
+        <p>Login</p>
+        <%= render '/users/login' %>
+      </div>
+    <% end %>
   </div>
-  <%= render :partial => 'events/index' %>
 </div>
