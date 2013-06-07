@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-  protect_from_forgery
 
   include FormHelper
 
