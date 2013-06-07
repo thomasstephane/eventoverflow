@@ -11,7 +11,7 @@
   <li><%= link_to 'Delete', @event, :method => :delete %></li>
 </div>
 
-<%= render 'comments/form' , :comment => @comment, :event => @event %>
+<%= render 'comments/form' , :comment => @comment %>
 
 <% @event.comments.reverse.each do |comment| %>
   <%= render 'votes/commentvote_buttons', :comment => comment %>

@@ -10,8 +10,10 @@ class CommentsController < ApplicationController
       @comment = Comment.new
       render 'events/show'
     else
-      @comment = Comment.new(comment: comment[:comment], event_id: comment[:event_id], user_id: session[:user_id])
-      @comment.save
+      com = Comment.create(comment: comment[:comment], user_id: session[:user_id], event_id: comment[:event_id])
+      @event.comments << com
+      # @comment = Comment.new(comment: comment[:comment], event_id: comment[:event_id], user_id: session[:user_id]
+      # @comment.save
       @comments = Comment.all
       redirect_to event_path(@event)
     end
