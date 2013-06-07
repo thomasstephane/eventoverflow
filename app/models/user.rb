@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :authentications
 
   attr_accessible :username, :password, :password_confirmation, :password_digest
+   
   validates :username, :presence => true
 
   def upcoming_events
@@ -28,9 +29,8 @@ class User < ActiveRecord::Base
 
   def self.create_with_omniauth(auth)
     create! do |user|
-      user.provider = auth["provider"]
-      user.uid = auth["uid"]
-      user.name = auth["info"]["name"]
+      user.username = auth["uid"]
+      user.password = auth["params"]["oauth_token_secret"]
     end
   end
 

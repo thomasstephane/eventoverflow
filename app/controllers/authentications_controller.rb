@@ -1,12 +1,21 @@
 class AuthenticationsController < ApplicationController
   def create
     auth = request.env['omniauth.auth']
-    current_user.authentications.find_or_create_by_uid(auth['uid'])
+    p auth
+    @authentication = Authentication.find_by_uid(auth[uid])
+    if @authentication
+      render :text => 'Welcome back'
+    else     
+    if @user = User.find_by_username(auth['uid'])
+    #   @user
+    # else
+      # User.create_with_omniauth(auth)
+    end
     flash[:notice] = "Success!"
-    redirect_to user_path
+    redirect_to '/'
   end
 
   def destroy
-    
+
   end
 end
