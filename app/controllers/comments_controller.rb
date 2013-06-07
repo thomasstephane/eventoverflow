@@ -1,9 +1,4 @@
 class CommentsController < ApplicationController
-  protect_from_forgery
-
-  include UsersHelper
-  include FormHelper
-  include VotesHelper
 
   def show
   end

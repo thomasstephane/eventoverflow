@@ -1,9 +1,4 @@
 class EventsController < ApplicationController
-
-  include FormHelper
-  include UsersHelper
-  include VotesHelper
-
   def show
     @event = Event.find(params[:id])
     @comment = Comment.new

@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe "Event" do
   let!(:event) { create(:event, :title => "my event", :description => "my event description")}
+  let(:user) { FactoryGirl.create(:user) }
+  before(:each) do
+    login(user)
+  end
 
   context "when create" do
     it "should redirect to the home page" do
