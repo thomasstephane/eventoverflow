@@ -5,15 +5,18 @@ class CommentsController < ApplicationController
   def create
     comment = params[:comment]
     @event = Event.find(comment[:event_id])
+
     if invalid_form(comment, "comment") != []
       @errors = invalid_form(comment, "comment")
       @comment = Comment.new
       render 'events/show'
     else
-      com = Comment.create(comment: comment[:comment], user_id: session[:user_id], event_id: comment[:event_id])
-      @event.comments << com
-      # @comment = Comment.new(comment: comment[:comment], event_id: comment[:event_id], user_id: session[:user_id]
-      # @comment.save
+      Comment.create( comment: comment[:comment],
+                      user_id: session[:user_id],
+                      event_id: comment[:event_id],
+                      commentable_type: comment[:commentable_type],
+                      commentable_id: comment[:commentable_id])
+
       @comments = Comment.all
       redirect_to event_path(@event)
     end
