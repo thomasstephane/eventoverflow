@@ -9,4 +9,8 @@ class Event < ActiveRecord::Base
   def sum_votes
     Vote.where("votable_id = ? AND votable_type = 'Event'", self.id).sum('counter')
   end
+
+  def all_comments
+    Comment.where(event_id: self.id)
+  end
 end
