@@ -1,7 +1,7 @@
 class VotesController < ApplicationController
-  include ApplicationHelper
-  include VotesHelper
 
+  include UsersHelper
+  include VotesHelper
 
   def upvote
     voter(params, 1)
@@ -17,17 +17,16 @@ class VotesController < ApplicationController
     votable.votes.find_by_user_id(current_user.id)
   end
 
-
   def voter(params, score)
     votable = find_votable(params)
-    question_id = q_id(votable)
+    event_id = event_id(votable)
     vote = voted(votable)
     if vote
       vote.updater(score)
     else
       votable.votes << Vote.create(user_id: current_user.id, counter: score)
     end
-    question = Question.find(q_id)
-    redirect_to question_path(question)
+    event = Event.find(event_id)
+    redirect_to event_path(event)
   end
 end

@@ -1,0 +1,5 @@
+<div class="comment-buttons">
+  <span id="comment-vote"><%= comment.sum_votes %></span>
+  <span><%= button_to "Upvote", comment_upvote_path(comment) %> </span>
+  <span><%= button_to "Downvote", comment_downvote_path(comment) %> </span>
+</div>

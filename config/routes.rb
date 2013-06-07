@@ -2,17 +2,19 @@ Eventsoverflow::Application.routes.draw do
   root :to => 'home#index'
 
   resources :events, :except => :index do
-    resources :comments, :only => [:show, :create]
+    post '/upvote' => 'votes#upvote'
+    post '/downvote' => 'votes#downvote'
+  end
+
+  resources :comments do
+    post '/upvote' => 'votes#upvote'
+    post '/downvote' => 'votes#downvote'
   end
 
   resources :users, :except => [:index, :new] do
   end
 
-  # user authentication
   post '/login' => 'session#create', :as => :session_create
   get '/logout' => 'session#destroy', :as => :session_destroy
-
-  # homepage
-  get '/about' => 'home#about'
 
 end

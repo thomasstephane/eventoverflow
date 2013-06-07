@@ -7,7 +7,6 @@ class SessionController < ApplicationController
       redirect_to user_path(@user)
     else
       flash[:errors_login] = ['Invalid username or password.']
-
       redirect_to root_path
     end
   end
