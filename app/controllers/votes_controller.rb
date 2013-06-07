@@ -1,8 +1,5 @@
 class VotesController < ApplicationController
 
-  include UsersHelper
-  include VotesHelper
-
   def upvote
     voter(params, 1)
   end

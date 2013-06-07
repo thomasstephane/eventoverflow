@@ -1,7 +1,5 @@
 class EventsController < ApplicationController
 
-  include FormHelper
-
   def show
     @event = Event.find(params[:id])
     @comment = Comment.new
@@ -18,6 +16,7 @@ class EventsController < ApplicationController
       new
     else
       @event = Event.new(params[:event])
+      current_user.events << @event
       @event.save
       @events = Event.all
       redirect_to root_path
