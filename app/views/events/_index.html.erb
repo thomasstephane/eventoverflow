@@ -2,6 +2,6 @@
 
 <% @events.reverse.each do |event| %>
 <p>
-  <%= render 'single_event' , :event => @event %>
+  <%= render 'events/single_event' , :event => event %>
 </p>
 <% end %>
