@@ -2,6 +2,15 @@ require 'spec_helper'
 
 describe "Event" do
   let!(:event) { create(:event, :title => "my event", :description => "my event description")}
+  let(:user) { create(:user) }
+
+ 
+  before do
+    visit root_path 
+    fill_in 'username', with: user.username
+    fill_in 'password', with: user.password
+    click_button 'Login'
+  end
 
   context "when create" do
     it "should redirect to the home page" do
@@ -89,11 +98,7 @@ describe "Event" do
     let(:user) { create(:user) }
 
     it "sees a list of recent event titles when connected" do
-      visit root_url
-      fill_in 'username', with: user.username
-      fill_in 'password', with: user.password
-      click_button 'Login'
-      click_link 'Home'
+      visit root_path 
       page.should have_content event.title
     end
   end
