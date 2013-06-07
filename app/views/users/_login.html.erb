@@ -10,6 +10,8 @@
     <% end %>
 
     <li>
+      <%= link_to 'Sign in with Google', '/auth/google' %>
+    <li>
       <%= text_field_tag 'username', nil, {:required => true, :placeholder => 'Username'} %>
     </li>
     <li>

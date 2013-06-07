@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
   has_many :events
   has_many :comments
+  has_many :authentications
 
   attr_accessible :username, :password, :password_confirmation, :password_digest
   validates :username, :presence => true
@@ -24,4 +25,14 @@ class User < ActiveRecord::Base
     end
     commented_events.uniq
   end
+
+  def self.create_with_omniauth(auth)
+    create! do |user|
+      user.provider = auth["provider"]
+      user.uid = auth["uid"]
+      user.name = auth["info"]["name"]
+    end
+  end
+
+
 end
