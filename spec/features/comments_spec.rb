@@ -9,7 +9,7 @@ describe "Comment" do
       visit event_path(event)
       fill_in 'Comment', with: "this is a comment from the comments testing page2"
       click_button 'Create Comment'
-      page.should have_content comment.comment
+      page.should have_content Comment.last.comment
     end
 
     it "should warn user if it has no comment" do
