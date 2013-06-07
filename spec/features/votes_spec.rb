@@ -2,17 +2,10 @@ require 'spec_helper'
 
 describe Vote do 
 
-  it "should belong to a user" do
-    should belong_to(:user)
-  end
-  it "should belong to a votable" do 
-    should belong_to(:votable)
-  end
-
   let (:user) { create(:user)}
   let (:event) { create(:event) }
-  let (:vote) { create(:vote_event) }
   let (:comment) { create(:comment) }
+  let (:vote) { create(:vote_event) }
   let (:vote) { create(:vote_comment) }
 
   context "vote on event" do
