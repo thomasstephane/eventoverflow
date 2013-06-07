@@ -6,7 +6,7 @@ Eventsoverflow::Application.routes.draw do
     post '/downvote' => 'votes#downvote'
   end
 
-  resources :comments do
+  resources :comments, :only => [:show, :create] do
     post '/upvote' => 'votes#upvote'
     post '/downvote' => 'votes#downvote'
   end

@@ -1,9 +1,9 @@
-<%= form_for Comment.create do |f| %>
+<%= form_for @comment do |f| %>
   <p>
     <%= f.text_field :comment, :placeholder => "Comment" %>
     <%= f.hidden_field :event_id, :value => event.id %>
   </p>
-  <%= f.submit %>
+  <%= f.submit "Post" %>
 <% end %>
 
 <% if @errors %>
