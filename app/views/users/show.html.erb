@@ -1,3 +1,24 @@
 <div id='<%= @user.id %>'>
   <%= @user.username %>
 </div>
+
+<div class="upcoming-events">
+  <h2>Upcoming Events</h2>
+  <% @user.upcoming_events.each do |event| %>
+    <%= render 'events/single_event' , :event => event %>
+  <% end %>
+</div>
+
+<div class="past-events">
+  <h2>Past Events</h2>
+  <% @user.past_events.each do |event| %>
+    <%= render 'events/single_event' , :event => event %>
+  <% end %>
+</div>
+
+<div class="commented-events">
+  <h2>Commented Events</h2>
+  <% @user.commented_events.each do |event| %>
+    <%= render 'events/single_event_title' , :event => event %>
+  <% end %>
+</div>

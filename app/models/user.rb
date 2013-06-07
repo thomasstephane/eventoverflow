@@ -6,4 +6,22 @@ class User < ActiveRecord::Base
 
   attr_accessible :username, :password, :password_confirmation, :password_digest
   validates :username, :presence => true
+
+  def upcoming_events
+    now = Time.now
+    Event.where("user_id = ? AND starts_at >= ?", self.id, now)
+  end
+
+  def past_events
+    now = Time.now
+    Event.where("user_id = ? AND starts_at < ?", self.id, now)
+  end
+
+  def commented_events
+    commented_events = []
+    self.comments.each do |comment|
+      commented_events << Event.find(comment.event_id)
+    end
+    commented_events.uniq
+  end
 end

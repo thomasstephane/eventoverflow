@@ -1,9 +1,7 @@
 <h1>All Events</h1>
 
-<% @events.reverse.each do |e| %>
+<% @events.reverse.each do |event| %>
 <p>
-<li><%= link_to e.title, e %></li>
-<li><%= link_to 'Edit', edit_event_path(e) %></li>
-<li><%= link_to 'Delete', e, :method => :delete %></li>
+  <%= render 'single_event' , :event => @event %>
 </p>
 <% end %>
