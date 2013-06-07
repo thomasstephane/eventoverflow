@@ -5,4 +5,13 @@ class Vote < ActiveRecord::Base
   belongs_to :votable, :polymorphic => true
   validates :voteable_type, :inclusion => {:in => ["Event", "Comment"]}
   
+
+
+  def updater(score)
+    if self.counter == 0
+      Vote.update(self.id, :counter => score)
+    else
+      Vote.update(self.id, :counter => 0)
+    end
+  end
 end
