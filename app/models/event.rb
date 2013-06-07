@@ -4,8 +4,7 @@ class Event < ActiveRecord::Base
   has_many :comments
   has_many :votes, :as => :votable
 
-  attr_accessible :title, :description, :starts_at, :duration, :location
-
+  attr_accessible :title, :description, :starts_at, :duration, :location, :user_id
   def sum_votes
     Vote.where("votable_id = ? AND votable_type = 'Event'", self.id).sum('counter')
   end
