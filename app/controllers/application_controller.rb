@@ -3,5 +3,5 @@ class ApplicationController < ActionController::Base
   include FormHelper
   include Authentication
   helper_method :current_user
-  include Voteable
+  include VotesHelper
 end
