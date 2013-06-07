@@ -24,3 +24,7 @@ group :development, :test do
   gem 'debugger'
   gem 'selenium-webdriver'
 end
+
+group :test do
+  gem 'shoulda', :require => false
+end
