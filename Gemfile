@@ -27,4 +27,5 @@ end
 
 group :test do
   gem 'shoulda', :require => false
+  gem "nyan-cat-formatter"
 end
