@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   def self.create_with_omniauth(auth)
     create! do |user|
       user.username = auth["uid"]
-      user.password = auth["params"]["oauth_token_secret"]
+      user.password_digest = auth['credentials']['secret']
     end
   end
 
