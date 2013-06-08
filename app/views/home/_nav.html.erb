@@ -1,10 +1,14 @@
-<% if session[:user_id] %>
+<% if current_user %>
   <% if current_uri != new_event_path %>
     <%= link_to "Create an event", new_event_path %>
   <% end %>
 
   <% if current_uri != root_path %>
   <%= link_to "Home", root_path %>
+  <% end %>
+
+  <% if current_uri != user_path(current_user) %>
+  <%= link_to "Profile", user_path(current_user) %>
   <% end %>
 
   <%= link_to "Logout", '/logout' %>

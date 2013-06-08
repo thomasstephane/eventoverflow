@@ -42,8 +42,7 @@ describe 'User' do
         fill_in 'username', with: user.username
         fill_in 'password', with: user.password
         click_button 'Login'
-
-        expect(page).to have_content(user.username)
+        expect(page).to have_link('Profile')
       end
     end 
   end
@@ -57,7 +56,7 @@ describe 'User' do
     it "can login with google" do
       visit root_path
       click_link 'Sign in with Google'
-      page.current_path.should eq(user_path(User.last))
+      page.current_path.should eq(root_path)
     end
   end
 end

@@ -4,10 +4,10 @@ class SessionController < ApplicationController
     if auth
      google_user = User.find_or_create_user_by_uid(auth)
      session[:user_id] = google_user.id
-     redirect_to user_path(google_user)
+     redirect_to root_path
     elsif @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to user_path(@user)
+      redirect_to root_path
     else
       flash[:errors_login] = ['Invalid username or password.']
       redirect_to root_path
