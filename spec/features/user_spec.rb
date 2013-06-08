@@ -47,4 +47,17 @@ describe 'User' do
       end
     end 
   end
+
+  context 'logging in with google' do
+    before(:each) do
+      OmniAuth.config.test_mode = true
+      OmniAuth.config.mock_auth[:default] = OmniAuth.config.mock_auth[:google]
+    end
+
+    it "can login with google" do
+      visit root_path
+      click_link 'Sign in with Google'
+      page.current_path.should eq(user_path(User.last))
+    end
+  end
 end
