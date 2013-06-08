@@ -20,4 +20,7 @@ Eventsoverflow::Application.routes.draw do
   get '/logout' => 'session#destroy', :as => :session_destroy
 
   match '/auth/google_oauth2/callback' => "session#create"
+  match '/auth/facebook/callback' => "session#create"
+  match '/auth/failure', to: redirect('/')
+  match 'signout', to: 'session_destroy', as: 'signout'
 end

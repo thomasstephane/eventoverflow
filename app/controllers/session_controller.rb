@@ -2,9 +2,9 @@ class SessionController < ApplicationController
   def create
     @user = User.find_by_username(params[:username])
     if auth
-     google_user = User.find_or_create_user_by_uid(auth)
-     session[:user_id] = google_user.id
-     redirect_to root_path
+      provider_user = User.find_or_create_user_by_uid(auth)
+      session[:user_id] = provider_user.id
+      redirect_to root_path
     elsif @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       redirect_to root_path
@@ -25,18 +25,6 @@ class SessionController < ApplicationController
   # end
 
   private
-
-  # def find_user_by_uid
-  #   User.find_by_uid(auth["uid"])
-  # end
-
-  # def create_user_by_uid
-  #   User.create_with_omniauth(auth)
-  # end
-
-  # def find_or_create_user_by_uid
-  #   @user = find_user_by_uid || create_user_by_uid
-  # end
 
   def auth
     request.env["omniauth.auth"]

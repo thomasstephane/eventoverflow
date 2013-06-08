@@ -59,4 +59,17 @@ describe 'User' do
       page.current_path.should eq(root_path)
     end
   end
+
+  context 'logging in with facebook' do
+    before(:each) do
+      OmniAuth.config.test_mode = true
+      OmniAuth.config.mock_auth[:default] = OmniAuth.config.mock_auth[:facebook]
+    end
+
+    it "can login with facebook" do
+      visit root_path
+      click_link 'Sign in with Facebook'
+      page.current_path.should eq(root_path)
+    end
+  end
 end
