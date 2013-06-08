@@ -27,15 +27,22 @@ do_it = [true, false]
 vote = [1,-1]
 
 Event.all.each do |event|
-  event.comments << Comment.create(user_id: (1 + rand(4)), comment: "Comment text")
+  event.comments << Comment.create(user_id: (1 + rand(4)), event_id: event.id, comment: "Comment text")
   4.times do |i|
     event.votes << Vote.create(user_id: (1 + i), counter: vote.sample ) if do_it.sample
   end
 end
 
 Comment.all.each do |comment|
-  4.times do |i|
+  2.times do |i|
     comment.votes << Vote.create(user_id: (1 + i), counter: vote.sample ) if do_it.sample
+    comment.comments << Comment.create(user_id: (1 + rand(4)), event_id: comment.event_id ,comment: "Comment text") if do_it.sample
   end
 end
 
+Comment.all.each do |comment|
+  3.times do |i|
+    comment.votes << Vote.create(user_id: (1 + i), counter: vote.sample ) if do_it.sample
+    comment.comments << Comment.create(user_id: (1 + rand(4)), event_id: comment.event_id ,comment: "Comment text") if do_it.sample
+  end
+end
