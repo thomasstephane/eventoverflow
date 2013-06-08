@@ -4,6 +4,7 @@ gem 'rails', '3.2.13'
 gem 'pg'
 gem 'jquery-rails'
 gem 'bcrypt-ruby'
+gem 'omniauth-google-oauth2'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
