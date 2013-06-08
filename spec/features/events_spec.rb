@@ -146,6 +146,7 @@ describe "Event" do
         choose "event_confirmation_decision_yes"
         click_button 'Respond'
         visit event_url(event)
+        click_link 'Modify answer'
         choose "event_confirmation_decision_no"
         click_button 'Respond'
         page.find('.attend p').should have_content "You've answered No to this event"
