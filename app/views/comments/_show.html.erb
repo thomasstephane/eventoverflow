@@ -1,4 +1,4 @@
-<div class="comment #{comment.id}">
+<div class="comment <%= comment.id%>">
   <p><%= comment.comment %></p>
 
   <%= render 'comments/form', :event => @event, :commentable => comment %>
