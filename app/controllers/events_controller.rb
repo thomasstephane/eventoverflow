@@ -4,7 +4,9 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @all_comments = @event.all_comments
     @comment = Comment.new
-    @event_confirmation = EventConfirmation.find_or_create_by_user_id_and_event_id(current_user.id, @event.id)
+    @existing_decision = EventConfirmation.find_by_user_id_and_event_id(current_user.id, @event.id)
+    @event_confirmation = @existing_decision ? @existing_decision : EventConfirmation.new
+
   end
 
   def new
