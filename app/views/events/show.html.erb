@@ -8,7 +8,8 @@
     <li>duration: <%= @event.duration %></li>
     <li>location: <%= @event.location %></li>
   </ul>
-  <%= render 'events/links', :event => @event  %>
+  <%= render 'events/attend' %>
+  <%= render 'events/links', :event => @event %>
 </div>
 <%= render 'comments/form', :event => @event, :commentable => @event %>
 

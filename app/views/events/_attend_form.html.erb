@@ -1,0 +1,9 @@
+ <div class="event-attend-buttons">
+  <%= form_for @event_confirmation, url: event_decision_path(@event), :method => :put do |f| %>
+    <% ["Yes","Maybe", "No"].each do |attend| %>
+      <span><%= f.label attend %></span>
+      <span><%= f.radio_button :decision, attend %></span>
+    <% end %>
+    <%= f.submit "Respond" %>
+  <% end %>
+</div>

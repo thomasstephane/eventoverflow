@@ -22,6 +22,8 @@ describe "Comment" do
 
     it "should warn user if it has no comment" do
       visit event_path(event)
+      click_link 'Add comment'
+      page.should have_link('Add comment')
       fill_in 'Comment', with: ""
       click_button 'Post'
 

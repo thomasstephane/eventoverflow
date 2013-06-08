@@ -73,46 +73,84 @@ describe "Event" do
 
   end
 
-  context "when view" do
+  describe "when view" do
     before do 
       user.events << event
     end
-    it "should have the event title" do
-      visit event_url(event)
-      page.should have_content event.title
+
+    context "content" do 
+      it "should have the event title" do
+        visit event_url(event)
+        page.should have_content event.title
+      end
+      
+      it "should have the event description" do
+        visit event_url(event)
+        page.should have_content event.description
+      end
+      
+      it "should display edit and delete links for the creator" do
+        visit event_url(event)
+        page.find('.event').should have_content 'Edit'
+        page.find('.event').should have_content 'Delete'
+      end 
+      
+      it "should not display edit and delete links the random user " do
+        visit session_destroy_path
+        visit root_path 
+        fill_in 'username', with: dude.username
+        fill_in 'password', with: dude.password
+        click_button 'Login'
+        visit event_url(event)
+        page.find('.event').should_not have_content 'Edit'
+        page.find('.event').should_not have_content 'Delete'
+      end
+      
+      it "should display edit and delete links for a user with admin rights" do
+        visit session_destroy_path
+        visit root_path 
+        fill_in 'username', with: admin.username
+        fill_in 'password', with: admin.password
+        click_button 'Login'
+        visit event_url(event)
+        page.find('.event').should have_content 'Edit'
+        page.find('.event').should have_content 'Delete'
+      end
     end
-    
-    it "should have the event description" do
-      visit event_url(event)
-      page.should have_content event.description
-    end
-    
-    it "creator should see edit and delete links" do
-      visit event_url(event)
-      page.find('.event').should have_content 'Edit'
-      page.find('.event').should have_content 'Delete'
-    end
-    
-    it "random user should not see edit and delete links" do
-      visit session_destroy_path
-      visit root_path 
-      fill_in 'username', with: dude.username
-      fill_in 'password', with: dude.password
-      click_button 'Login'
-      visit event_url(event)
-      page.find('.event').should_not have_content 'Edit'
-      page.find('.event').should_not have_content 'Delete'
-    end
-    
-    it "user with admin rights should see edit and delete links" do
-      visit session_destroy_path
-      visit root_path 
-      fill_in 'username', with: admin.username
-      fill_in 'password', with: admin.password
-      click_button 'Login'
-      visit event_url(event)
-      page.find('.event').should have_content 'Edit'
-      page.find('.event').should have_content 'Delete'
+
+    context "attend section" do 
+      it "should display the option Yes" do
+        visit event_url(event)
+        page.find('.attend').should have_content 'Yes'
+      end
+
+      it "should display the options Maybe" do
+        visit event_url(event)
+        page.find('.attend').should have_content 'Maybe'
+      end
+
+      it "should display the option No" do
+        visit event_url(event)
+        page.find('.attend').should have_content 'No'
+      end
+
+      it "shoul display a message if already decided" do
+        visit event_url(event)
+        choose "event_confirmation_decision_yes"
+        click_button 'Respond'
+        page.find('.attend p').should have_content "You've answered Yes to this event"
+      end
+
+      it "shoul allow to change a vote" do
+        visit event_url(event)
+        choose "event_confirmation_decision_yes"
+        click_button 'Respond'
+        visit event_url(event)
+        click_link 'Modify answer'
+        choose "event_confirmation_decision_no"
+        click_button 'Respond'
+        page.find('.attend p').should have_content "You've answered No to this event"
+      end
     end
   end
 

@@ -5,7 +5,8 @@ class CommentsController < ApplicationController
   def create
     comment = params[:comment]
     @event = Event.find(comment[:event_id])
-
+    @existing_decision = EventConfirmation.find_by_user_id_and_event_id(current_user.id, @event.id)
+    @event_confirmation = @existing_decision ? @existing_decision : EventConfirmation.new
     if invalid_form(comment, "comment") != []
       @errors = invalid_form(comment, "comment")
       @comment = Comment.new

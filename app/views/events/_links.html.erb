@@ -3,6 +3,6 @@
     <%= link_to 'Edit', edit_event_path(event) %>
   </div>
   <div class="event-link">
-    <%= link_to 'Delete', event, :method => :delete %>
+    <%= link_to 'Delete', @event, :method => :delete %>
   </div>
 <% end %>
