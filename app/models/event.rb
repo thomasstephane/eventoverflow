@@ -3,6 +3,8 @@ class Event < ActiveRecord::Base
   belongs_to :user
   has_many :comments, :as => :commentable
   has_many :votes, :as => :votable
+  has_many :event_confirmations
+  has_many :users, :through => :event_confirmations
 
   attr_accessible :title, :description, :starts_at, :duration, :location, :user_id
   def sum_votes
