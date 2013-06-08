@@ -3,6 +3,7 @@ class SessionController < ApplicationController
     @user = User.find_by_username(params[:username])
     if auth
      google_user = User.find_or_create_user_by_uid(auth)
+     session[:user_id] = google_user.id
      redirect_to user_path(google_user)
     elsif @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
