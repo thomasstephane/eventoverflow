@@ -58,14 +58,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  # def self.create_with_omniauth(auth)
-  #   create! do |user|
-  #     user.uid = auth["uid"]
-  #     user.username = auth["info"]["name"]
-  #     user.password = 'password'
-  #   end
-  # end
-
   def self.find_or_create_user_by_uid(auth)
     User.find_by_uid(auth["uid"]) || User.from_omniauth(auth)
   end
