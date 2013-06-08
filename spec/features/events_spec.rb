@@ -1,10 +1,12 @@
 require 'spec_helper'
 
 describe "Event" do
-  let!(:event) { create(:event, :title => "my event", :description => "my event description")}
   let(:user) { create(:user) }
+  let! (:event) { create(:event, :title => "my event", :description => "my event description")}
+  let! (:admin) {create(:user, username: "admin", admin: true)}
+  let! (:dude) {create(:user, username: "dude", )}
 
- 
+
   before do
     visit root_path 
     fill_in 'username', with: user.username
@@ -72,13 +74,45 @@ describe "Event" do
   end
 
   context "when view" do
+    before do 
+      user.events << event
+    end
     it "should have the event title" do
       visit event_url(event)
       page.should have_content event.title
     end
+    
     it "should have the event description" do
       visit event_url(event)
       page.should have_content event.description
+    end
+    
+    it "creator should see edit and delete links" do
+      visit event_url(event)
+      page.find('.event').should have_content 'Edit'
+      page.find('.event').should have_content 'Delete'
+    end
+    
+    it "random user should not see edit and delete links" do
+      visit session_destroy_path
+      visit root_path 
+      fill_in 'username', with: dude.username
+      fill_in 'password', with: dude.password
+      click_button 'Login'
+      visit event_url(event)
+      page.find('.event').should_not have_content 'Edit'
+      page.find('.event').should_not have_content 'Delete'
+    end
+    
+    it "user with admin rights should see edit and delete links" do
+      visit session_destroy_path
+      visit root_path 
+      fill_in 'username', with: admin.username
+      fill_in 'password', with: admin.password
+      click_button 'Login'
+      visit event_url(event)
+      page.find('.event').should have_content 'Edit'
+      page.find('.event').should have_content 'Delete'
     end
   end
 
