@@ -1,0 +1,9 @@
+<div class="attend">
+  <% if @event_confirmation.decision %>
+    <p>You've answer <% event_confirmation.decision %> to this event</p>
+    <a href="#">Modify answer</a>
+    <div class="attend-modify"><%= render 'events/attend_form' %></div>
+  <% else %>
+    <%= render 'events/attend_form'  %>
+  <% end %>
+</div>

@@ -1,8 +1,8 @@
-<% if current_user.id == event.user_id || current_user.admin %>
+<% if current_user.id == @event.user_id || current_user.admin %>
   <div class="event-link">
-    <%= link_to 'Edit', edit_event_path(event) %>
+    <%= link_to 'Edit', edit_event_path(@event) %>
   </div>
   <div class="event-link">
-    <%= link_to 'Delete', event, :method => :delete %>
+    <%= link_to 'Delete', @event, :method => :delete %>
   </div>
 <% end %>
