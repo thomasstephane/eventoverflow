@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
   has_many :events
-  has_many :comments
+  has_many :comments, :as => :commentable
 
   attr_accessible :username, :password, :password_confirmation, :password_digest, :admin
   validates :username, :presence => true

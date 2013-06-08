@@ -16,7 +16,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'sextant'
-  # gem 'better_errors'
+  gem 'better_errors'
   gem 'pry-rails'
   gem 'database_cleaner'
   gem 'quiet_assets'
@@ -24,4 +24,5 @@ group :development, :test do
   gem "capybara"
   gem 'debugger'
   gem 'selenium-webdriver'
+  gem 'meta_request'
 end

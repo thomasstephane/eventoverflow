@@ -17,8 +17,10 @@ ActiveRecord::Schema.define(:version => 20130608012223) do
     t.integer  "user_id"
     t.integer  "event_id"
     t.text     "comment"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "commentable_type"
+    t.integer  "commentable_id"
   end
 
   create_table "events", :force => true do |t|

@@ -1,4 +1,4 @@
-<div class="event">
+<div class="event #{@event.id}">
   <h1>This Event</h1>
   <%= render 'votes/eventvote_buttons', :event => @event %>
   <ul>
@@ -10,10 +10,9 @@
   </ul>
   <%= render 'events/links', :event => @event  %>
 </div>
+<%= render 'comments/form', :event => @event, :commentable => @event %>
 
-<%= render 'comments/form' , :comment => @comment, :event => @event %>
-
-<% @event.comments.reverse.each do |comment| %>
-  <%= render 'votes/commentvote_buttons', :comment => comment %>
+<% children(@all_comments, @event).reverse.each do |comment| %>
+<%= render 'votes/commentvote_buttons', :comment => comment %>
   <%= render 'comments/show', :comment => comment %>
 <% end %>

@@ -1,3 +1,17 @@
-<div class="row">
+<div class="comment #{comment.id}">
   <p><%= comment.comment %></p>
+
+  <%= render 'comments/form', :event => @event, :commentable => comment %>
+
+  <% unless children(@all_comments, comment).empty? %>
+  <ul>
+    <% children(@all_comments, comment).reverse.each do |child| %>
+      <li>
+        <%= render 'votes/commentvote_buttons', :comment => child %>
+        <%= render 'comments/show', :comment => child %>
+      </li>
+    <% end %>
+    </ul>
+  <% end %>
 </div>
+
