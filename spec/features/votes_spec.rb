@@ -20,13 +20,13 @@ describe Vote do
     it "should increase vote count" do
       expect {
         page.find(".event-buttons").click_button('Upvote')
-      }.to change{event.sum_votes}.from(0).to(1)
+      }.to change{event.reload.sum_votes}.from(0).to(1)
     end
 
     it "should decrease vote count" do
       expect {
         page.find(".event-buttons").click_button('Downvote')
-      }.to change{event.sum_votes}.from(0).to(-1)
+      }.to change{event.reload.sum_votes}.from(0).to(-1)
     end
 
     it "twice upvote should leave the count to where it was" do
