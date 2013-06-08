@@ -6,7 +6,6 @@ class EventsController < ApplicationController
     @comment = Comment.new
     @existing_decision = EventConfirmation.find_by_user_id_and_event_id(current_user.id, @event.id)
     @event_confirmation = @existing_decision ? @existing_decision : EventConfirmation.new
-
   end
 
   def new
