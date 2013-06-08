@@ -10,13 +10,10 @@ FactoryGirl.define do
     starts_at Time.now.to_date.to_time
     duration 2
     location "My event address"
-    association :user
   end
 
   factory :comment do
     comment "My comment on an event"
-    association :user
-    association :event
   end
 
   factory :vote_question do
