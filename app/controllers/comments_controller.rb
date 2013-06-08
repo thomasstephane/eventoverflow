@@ -9,8 +9,9 @@ class CommentsController < ApplicationController
     @event_confirmation = @existing_decision ? @existing_decision : EventConfirmation.new
     if invalid_form(comment, "comment") != []
       @errors = invalid_form(comment, "comment")
+      @comments = Comment.all
       @comment = Comment.new
-      render 'events/show'
+      redirect_to event_path(@event)
     else
       Comment.create( comment: comment[:comment],
                       user_id: session[:user_id],

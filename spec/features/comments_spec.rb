@@ -20,14 +20,13 @@ describe "Comment" do
       page.should have_content Comment.last.comment
     end
 
-    it "should warn user if it has no comment" do
+    it "should warn user if it has no comment",  :js => true do
       visit event_path(event)
       click_link 'Add comment'
       page.should have_link('Add comment')
-      fill_in 'Comment', with: ""
       click_button 'Post'
 
-      page.should have_content('Your comment should have a comment')
+      page.should have_content("Your comment can't be blank")
     end
   end
 end
