@@ -46,15 +46,27 @@ class User < ActiveRecord::Base
     commented_events.uniq
   end
 
-  def self.create_with_omniauth(auth)
-    create! do |user|
-      user.uid = auth["uid"]
-      user.username = auth["info"]["name"]
+  def self.from_omniauth(auth)
+    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.username = auth.info.name
       user.password = 'password'
+      user.oauth_token = auth.credentials.oauth_token
+      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      user.save!
     end
   end
 
-  def self.find_or_create_user_by_uid auth
-    User.find_by_uid(auth["uid"]) || User.create_with_omniauth(auth)
+  # def self.create_with_omniauth(auth)
+  #   create! do |user|
+  #     user.uid = auth["uid"]
+  #     user.username = auth["info"]["name"]
+  #     user.password = 'password'
+  #   end
+  # end
+
+  def self.find_or_create_user_by_uid(auth)
+    User.find_by_uid(auth["uid"]) || User.from_omniauth(auth)
   end
 end
