@@ -23,4 +23,6 @@ Eventsoverflow::Application.routes.draw do
   match '/auth/facebook/callback' => "session#create"
   match '/auth/failure', to: redirect('/')
   match 'signout', to: 'session_destroy', as: 'signout'
+
+  resources :calendars, :only => [:show, :create]
 end

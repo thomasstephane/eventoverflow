@@ -5,4 +5,7 @@
   <div class="event-link">
     <%= link_to 'Delete', @event, :method => :delete %>
   </div>
+  <div class="event-link">
+    <%= link_to 'Add to Google Calendar', calendars_path, :method => :post %>
+  </div>
 <% end %>

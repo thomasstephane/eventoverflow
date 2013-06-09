@@ -14,4 +14,8 @@ class Event < ActiveRecord::Base
   def all_comments
     Comment.where(event_id: self.id)
   end
+
+  def self.client_creator
+    Google::APIClient.new
+  end
 end

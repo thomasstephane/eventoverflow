@@ -4,6 +4,7 @@ gem 'rails', '3.2.13'
 gem 'pg'
 gem 'jquery-rails'
 gem 'bcrypt-ruby'
+gem 'google-api-client', :require => 'google/api_client'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 
