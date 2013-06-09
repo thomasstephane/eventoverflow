@@ -18,7 +18,7 @@
 }
 
 html {
-  background-color: $light-cream;
+  background: $background repeat;
   min-width: 100%;
   width: 100%;
   min-heigth: 100%;
@@ -31,6 +31,7 @@ body {
   min-heigth: 100%;
   heigth: 100%;
   text-align: center;
+  z-index: 1;
 }
 
 input,
