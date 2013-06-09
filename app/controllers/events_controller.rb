@@ -20,6 +20,7 @@ class EventsController < ApplicationController
       new
     else
       @event = Event.new(params[:event])
+      @event.starts_at -= Time.now.utc_offset
       current_user.events << @event
       @event.save
       @events = Event.all
@@ -40,7 +41,7 @@ class EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
-    redirect_to events_path    
+    redirect_to root_path 
   end
 
 end

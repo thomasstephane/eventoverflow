@@ -1,24 +1,12 @@
-<ul>
-  <%= form_tag session_create_path, :method => :post do %>
-
+<%= form_tag session_create_path, :method => :post do %>
   <% if flash[:errors_login] %>
-  <ul>
-    <% flash[:errors_login].each do |error| %>
-    <li><%= error %></li>
-    <% end %>
-  </ul>
+    <ul>
+      <% flash[:errors_login].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
   <% end %>
-
-  <%= link_to 'Sign in with Google', '/auth/google_oauth2' %>
-  <%= link_to 'Sign in with Facebook', '/auth/facebook' %>
-  <li>
-    <%= text_field_tag 'username', nil, {:required => true, :placeholder => 'Username'} %>
-  </li>
-  <li>
-    <%= password_field_tag 'password', nil, {:required => true, :placeholder => 'Password'} %>
-  </li>
-  <li>
-    <%= submit_tag 'Login' %>
-  </li>
-  <% end %>
-</ul>
+  <%= text_field_tag 'username', nil, {:required => true, :placeholder => 'Username'} %>
+  <%= password_field_tag 'password', nil, {:required => true, :placeholder => 'Password'} %>
+  <%= submit_tag 'rake db:login' %>
+<% end %>

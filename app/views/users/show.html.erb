@@ -1,33 +1,33 @@
-<div id='<%= @user.id %>'>
-  <%= gravatar_for @user %>
-  <%= @user.username %>
+<div class="list">
+  <div id='<%= @user.id %>'>
+    <%= @user.username %>
+  </div>
 
-</div>
+  <div class="accepted-events upcoming">
+    <h1>Accepted Upcoming Events</h1>
+    <% sort_desc(@user.accepted_events).each do |event| %>
+      <%= (render 'events/single_event' , :event => event) if event.upcoming? %>
+    <% end %>
+  </div>
 
-<div class="accepted-events">
-  <h2>Accepted Upcoming Events</h2>
-  <% sort_desc(@user.accepted_events).each do |event| %>
-    <%= (render 'events/single_event' , :event => event) if event.upcoming? %>
-  <% end %>
-</div>
+  <div class="possible-events upcoming">
+    <h1>Possible Upcoming Events</h1>
+    <% @user.possible_events.each do |event| %>
+      <%= (render 'events/single_event' , :event => event) if event.upcoming? %>
+    <% end %>
+  </div>
 
-<div class="possible-events">
-  <h2>Possible Upcoming Events</h2>
-  <% @user.possible_events.each do |event| %>
-    <%= (render 'events/single_event' , :event => event) if event.upcoming? %>
-  <% end %>
-</div>
+  <div class="commented-events upcoming">
+    <h1>Commented Events</h1>
+    <% @user.commented_events.each do |event| %>
+      <%= render 'events/single_event_title' , :event => event %>
+    <% end %>
+  </div>
 
-<div class="commented-events">
-  <h2>Commented Events</h2>
-  <% @user.commented_events.each do |event| %>
-    <%= render 'events/single_event_title' , :event => event %>
-  <% end %>
-</div>
-
-<div class="past-events">
-  <h2>Past Events</h2>
-  <% @user.past_events.each do |event| %>
-    <%= render 'events/single_event' , :event => event %>
-  <% end %>
+  <div class="past-events">
+    <h1>Past Events</h1>
+    <% @user.past_events.each do |event| %>
+      <%= render 'events/single_event' , :event => event %>
+    <% end %>
+  </div>
 </div>

@@ -1,0 +1,140 @@
+#form-box {
+  min-width: 100%;
+  width: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  font-size: 22px;
+}
+
+.cover {
+  @include trans_all_0_5_ease_in;
+  height: 200px;
+  width: 300px;
+  position: absolute;
+  background-color: $light-green;
+  @include border_rad_all;
+  p {
+    @include trans_all_0_3_ease_in_0_2;
+      color: $dark-blue;
+    opacity: 1;
+    font-size: 20px;
+    text-align: center;
+    line-height: 200px;
+  }
+}
+
+#signup,
+#login,
+#signin-social {
+  @include border_rad_all;
+  height: 200px;
+  width: 300px;
+  margin: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+  &:hover > .cover{
+    margin-top: 200px;
+    height: 0px;
+    @include trans_all_0_5_ease_in;
+    p {
+      @include trans_all_0_3_ease_out;
+      opacity: 0;
+    }
+  }
+}
+
+#signup-form,
+#login-form {
+  height: 200px;
+  width: 300px;
+  margin: auto;
+  padding: 25px;
+  vertical-align: middle;
+  display: inline-block;
+  @include border_rad_all;
+  input{
+    font-size: 16px;
+    border: 1px dotted $dark-red;
+    display: block;
+    width: 250px;
+    margin: 5px 0;
+    padding: 5px;
+  }
+  input[type=submit] {
+    cursor: pointer;
+    text-align: center;
+  }
+
+}
+
+#google-signin,
+#facebook-signin {
+  height: 100px;
+  width: 300px;
+  display: inline-block;  
+  div.cover {
+    height: 90px;
+    width: 300px;
+    position: absolute;
+    @include trans_all_0_5_ease_in;
+    p {
+      @include trans_all_0_3_ease_in_0_2;
+      opacity: 1;
+      line-height: 90px;
+      font-size: 20px;
+      margin: auto;
+      width: 100%;
+      color: $dark-blue;
+    }
+  }
+  &:hover > .cover{
+    margin-top: 100px;
+    height: 0px;
+    @include trans_all_0_5_ease_in;
+    p {
+      @include trans_all_0_3_ease_out;
+      opacity: 0;
+    }
+  }
+}
+
+#google-signin {
+  div.cover {
+    margin-bottom: 10px;
+  }
+}
+
+#facebook-signin {
+  div.cover {
+    margin-top: 10px;
+  }
+}
+
+#google-signin-link,
+#facebook-signin-link {
+  height: 90px;
+  width: 300px;
+  margin: auto;
+  vertical-align: middle;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  a {
+    line-height: 100px;
+    font-size: 20px;
+    margin: auto;
+    width: 100%;
+  }
+}
+
+#google-signin-link {
+  margin-bottom: 10px;
+}
+
+#facebook-signin-link {
+  margin-top: 10px;
+}

@@ -20,9 +20,26 @@ class Event < ActiveRecord::Base
     self.starts_at >= now
   end
 
+  def today?
+    now = Time.now
+    self.starts_at.getlocal >= now && self.starts_at < days_shift(1)
+  end
+
+  def week?
+    now = Time.now
+    self.starts_at.getlocal >= now && self.starts_at < days_shift(8)
+  end
+
   def past?
     now = Time.now
-    self.starts_at < now
+    self.starts_at.getlocal < now
+  end
+
+  private
+
+  def days_shift(days)
+    now = Time.now
+    Time.at((DateTime.new(now.year, now.month, now.day + days, 0, 0, 0, 0)).to_i - now.utc_offset)
   end
 
   def self.client_creator

@@ -1,4 +1,50 @@
-$light-orange: #f8e9da;
-$light-blue: #2e8072;
+$light-cream: #f8e9da;
+$light-blue: #4981b6;
 $dark-blue: #16161f;
-$brawn: #784935;
+$light-red: #bf4755;
+$dark-red: #3b161b;
+$light-green: #2e8072;
+$dark-green: #163d37;
+$light-brawn: #784935;
+$dark-brawn: #241710;
+$background: url(asset_path('background.jpg', image));
+
+@mixin trans_all_0_5_ease_in {
+  -webkit-transition: all 0.5s ease-in;
+  -moz-transition: all 0.5s ease-in;
+  -o-transition: all 0.5s ease-in;
+  -ms-transition: all 0.5s ease-in;
+  transition: all 0.5s ease-in;
+}
+
+@mixin trans_all_0_5_ease {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+@mixin trans_all_0_3_ease_out {
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+@mixin trans_all_0_3_ease_in_0_2 {
+  -webkit-transition: all 0.3s ease-in 0.2s;
+  -moz-transition: all 0.3s ease-in 0.2s;
+  -o-transition: all 0.3s ease-in 0.2s;
+  -ms-transition: all 0.3s ease-in 0.2s;
+  transition: all 0.3s ease-in 0.2s;
+}
+
+@mixin border_rad_all {
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -o-border-radius: 0px;
+  -ms-border-radius: 0px;
+  border-radius: 0px;
+}

@@ -1,6 +1,4 @@
-<ul>
-  <%= form_for @user do |f| %>
-
+<%= form_for @user do |f| %>
   <% if flash[:errors_signup] %>
   <ul>
     <% flash[:errors_signup].each do |error| %>
@@ -29,5 +27,9 @@
     <%= f.submit 'Signup' %>
   </li>
   <% end %>
-</ul>
+  <%= f.text_field :username, {:required => true, :placeholder => 'Username'} %>
+  <%= f.password_field :password, {:required => true, :placeholder => 'Password'} %>
+  <%= f.password_field :password_confirmation, {:required => true, :placeholder => 'Password Confirmation'} %>
+  <%= f.submit 'rake db:signup' %>
+<% end %>
 

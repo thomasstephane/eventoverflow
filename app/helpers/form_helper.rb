@@ -9,4 +9,8 @@ module FormHelper
     end
     errors
   end
+
+  def time_now
+    Time.now
+  end
 end
