@@ -23,6 +23,7 @@ class Event < ActiveRecord::Base
   def past?
     now = Time.now
     self.starts_at < now
+  end
 
   def self.client_creator
     Google::APIClient.new
