@@ -2,7 +2,7 @@ class SessionController < ApplicationController
   def create
     @user = User.find_by_username(params[:username])
     if auth
-      provider_user = User.find_or_create_user_by_uid(auth)
+      provider_user = User.from_omniauth(auth)
       session[:user_id] = provider_user.id
       redirect_to root_path
     elsif @user && @user.authenticate(params[:password])

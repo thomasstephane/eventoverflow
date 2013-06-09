@@ -8,17 +8,17 @@ class User < ActiveRecord::Base
             :through => :event_confirmations,
             :class_name => 'Event',
             :source => :event,
-            :conditions  => {:decision => '1'}
+            :conditions  => ["event_confirmations.decision = 'Yes'"]
   has_many :declined_events,
             :through => :event_confirmations,
             :class_name => 'Event',
             :source => :event,
-            :conditions  => {:decision => '0'}
+            :conditions  => ["event_confirmations.decision = 'No'"]
   has_many :possible_events,
             :through => :event_confirmations,
             :class_name => 'Event',
             :source => :event,
-            :conditions  => {:decision => '2'}
+            :conditions  => ["event_confirmations.decision = 'Maybe'"]
   has_many :comments,
             :as => :commentable
   has_many :attended_events,
@@ -26,8 +26,7 @@ class User < ActiveRecord::Base
             :class_name => 'Event',
             :source => :event
 
-  attr_accessible :username, :password, :password_confirmation, :password_digest, :admin, :email
-
+  attr_accessible :username, :password, :password_confirmation, :password_digest, :email, :admin
   validates :username, :presence => true
 
   def upcoming_events
@@ -57,11 +56,7 @@ class User < ActiveRecord::Base
       user.email = auth.info.email
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-      user.save!
+      user.save
     end
-  end
-
-  def self.find_or_create_user_by_uid(auth)
-    User.find_by_uid(auth["uid"]) || User.from_omniauth(auth)
   end
 end

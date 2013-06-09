@@ -2,12 +2,13 @@ FactoryGirl.define do
   factory :user do
     username "new_user"
     password "password"
+    email "email@test.com"
   end
 
   factory :event do
     title  "My New Event"
     description "My event details"
-    starts_at Time.now.to_date.to_time
+    starts_at (Time.now + 1000000).to_date.to_time
     duration 2
     location "My event address"
     association :user
