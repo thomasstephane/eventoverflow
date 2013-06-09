@@ -2,7 +2,7 @@ class EventsController < ApplicationController
 
   def show
     p params
-    @event = Event.find(params[:id])
+    @event =   Event.find(params[:id])
     @all_comments = @event.all_comments
     @comment = Comment.new
     @existing_decision = EventConfirmation.find_by_user_id_and_event_id(current_user.id, @event.id)
