@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130608230829) do
+ActiveRecord::Schema.define(:version => 20130609002641) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20130608230829) do
     t.string   "provider"
     t.string   "oauth_token"
     t.integer  "oauth_expires_at"
+    t.string   "email"
   end
 
   create_table "votes", :force => true do |t|
