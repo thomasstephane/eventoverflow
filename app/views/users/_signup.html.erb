@@ -7,6 +7,7 @@
     </ul>
   <% end %>
   <%= f.text_field :username, {:required => true, :placeholder => 'Username'} %>
+  <%= f.text_field :email, {:required => true, :placeholder => 'Email'} %>
   <%= f.password_field :password, {:required => true, :placeholder => 'Password'} %>
   <%= f.password_field :password_confirmation, {:required => true, :placeholder => 'Password Confirmation'} %>
   <%= f.submit 'rake db:signup' %>
