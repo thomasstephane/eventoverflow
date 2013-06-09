@@ -18,7 +18,7 @@
   @include border_rad_all;
   p {
     @include trans_all_0_3_ease_in_0_2;
-      color: $dark-green;
+      color: $dark-blue;
     opacity: 1;
     font-size: 20px;
     text-align: center;
@@ -88,7 +88,7 @@
       font-size: 20px;
       margin: auto;
       width: 100%;
-      color: $dark-green;
+      color: $dark-blue;
     }
   }
   &:hover > .cover{

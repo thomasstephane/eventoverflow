@@ -1,9 +1,12 @@
 $light-cream: #f8e9da;
-$light-blue: #2e8072;
-$dark-blue: #16161f;
-$dark-green: #163e39;
-$dark-red: #3b161b;
-$brawn: #784935;
+$light-blue: #66a997;
+$light-red: #d67741;
+$dark-red: #402d1c;
+$dark-blue: #3b6157;
+$light-green: #3d8fbe;
+$dark-green: #16161f;
+$light-brawn: #785140;
+$dark-brawn: #2f1d15;
 $background: url(asset_path('background.jpg', image));
 
 @mixin trans_all_0_5_ease_in {

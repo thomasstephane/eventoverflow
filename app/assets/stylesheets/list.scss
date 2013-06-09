@@ -1,0 +1,43 @@
+.list {
+  width: 100%;
+  min-width: 100%;
+  padding: 20px;
+  margin: auto;
+  text-align:center;
+  .upcoming {
+    min-width: 20%;
+    display: inline-block;
+    vertical-align: top;
+    margin: auto 20px;
+    h1{
+      width: 100%;
+      min-width: 100%;
+      text-align: center;
+      line-height: 50px;
+      height: 50px;
+      padding: 0 20px;
+      margin-bottom: 20px;
+    }
+    p {
+      padding: 0 20px;
+    }
+  }
+  .today {
+    h1{
+      background-color: $light-red;
+      color: $dark-red;
+    }
+  }
+  .week{
+    h1{
+      background-color: $light-green;
+      color: $dark-green;
+    }
+  }
+  .other{
+    h1{
+      background-color: $light-brawn;
+      color: $dark-brawn;
+    }
+  }
+}
