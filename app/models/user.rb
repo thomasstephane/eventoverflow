@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
             :class_name => 'Event',
             :source => :event
 
-  attr_accessible :username, :password, :password_confirmation, :password_digest, :admin
+  attr_accessible :username, :password, :password_confirmation, :password_digest, :email, :admin
   validates :username, :presence => true
 
   def upcoming_events
@@ -53,13 +53,9 @@ class User < ActiveRecord::Base
       user.username = auth.info.name
       user.password = SecureRandom.hex(4)
       user.email = auth.info.email
-      user.oauth_token = auth.credentials.oauth_token
+      user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-      user.save!
+      user.save
     end
-  end
-
-  def self.find_or_create_user_by_uid(auth)
-    User.find_by_uid(auth["uid"]) || User.from_omniauth(auth)
   end
 end

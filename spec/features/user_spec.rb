@@ -14,6 +14,7 @@ describe 'User' do
     describe 'with valid information' do
       before do
         fill_in 'user_username', with: 'Example User'
+        fill_in 'user_email', with: 'example@example.com'
         fill_in 'user_password', with: '1234'
         fill_in 'user_password_confirmation', with: '1234'
       end
