@@ -13,7 +13,7 @@ describe Vote do
       visit root_path
       fill_in('username', :with => user.username)
       fill_in('password', :with => user.password)
-      click_button('Login')
+      click_button('rake db:login')
       visit event_path(event)
     end
 
@@ -63,7 +63,7 @@ describe Vote do
       visit root_path
       fill_in('username', :with => user.username)
       fill_in('password', :with => user.password)
-      click_button('Login')
+      click_button('rake db:login')
       visit event_path(event)
       fill_in('comment[comment]', :with => comment.comment)
       click_button('Post')

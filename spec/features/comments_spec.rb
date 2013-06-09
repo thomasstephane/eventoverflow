@@ -11,7 +11,7 @@ describe "Comment" do
       visit root_path
       fill_in 'username', with: "new_user"
       fill_in 'password', with: "password"
-      click_button 'Login'
+      click_button 'rake db:login'
     end
     it "should be rendered on event show page" do
       visit event_path(event)

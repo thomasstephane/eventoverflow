@@ -7,7 +7,7 @@ describe 'User' do
     
     describe 'with invalid information' do
       it 'should not create a user' do
-        expect { click_button 'Signup' }.not_to change(User, :count)
+        expect { click_button 'rake db:signup' }.not_to change(User, :count)
       end
     end
 
@@ -19,7 +19,7 @@ describe 'User' do
       end
 
       it 'should create a user' do
-        expect { click_button 'Signup'}.to change(User, :count).by(1)
+        expect { click_button 'rake db:signup'}.to change(User, :count).by(1)
       end
     end
   end
@@ -31,7 +31,7 @@ describe 'User' do
     describe 'with invalid information' do
       it 'should not login the user' do
         visit root_path
-        click_button 'Login'
+        click_button 'rake db:login'
         expect(page).to have_content('Invalid')
       end
     end
@@ -41,7 +41,7 @@ describe 'User' do
       it "does something cool" do
         fill_in 'username', with: user.username
         fill_in 'password', with: user.password
-        click_button 'Login'
+        click_button 'rake db:login'
         expect(page).to have_link('Profile')
       end
     end 

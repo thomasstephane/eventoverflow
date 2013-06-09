@@ -14,7 +14,7 @@
   height: 200px;
   width: 300px;
   position: absolute;
-  background-color: $light-blue;
+  background-color: $light-green;
   @include border_rad_all;
   p {
     @include trans_all_0_3_ease_in_0_2;

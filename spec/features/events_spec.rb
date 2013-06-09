@@ -11,7 +11,7 @@ describe "Event" do
     visit root_path 
     fill_in 'username', with: user.username
     fill_in 'password', with: user.password
-    click_button 'Login'
+    click_button 'rake db:login'
   end
 
   context "when create" do
@@ -100,7 +100,7 @@ describe "Event" do
         visit root_path 
         fill_in 'username', with: dude.username
         fill_in 'password', with: dude.password
-        click_button 'Login'
+        click_button 'rake db:login'
         visit event_url(event)
         page.find('.event').should_not have_content 'Edit'
         page.find('.event').should_not have_content 'Delete'
@@ -111,7 +111,7 @@ describe "Event" do
         visit root_path 
         fill_in 'username', with: admin.username
         fill_in 'password', with: admin.password
-        click_button 'Login'
+        click_button 'rake db:login'
         visit event_url(event)
         page.find('.event').should have_content 'Edit'
         page.find('.event').should have_content 'Delete'
