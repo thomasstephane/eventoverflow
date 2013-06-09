@@ -14,4 +14,14 @@ class Event < ActiveRecord::Base
   def all_comments
     Comment.where(event_id: self.id)
   end
+
+  def upcoming?
+    now = Time.now
+    self.starts_at >= now
+  end
+
+  def past?
+    now = Time.now
+    self.starts_at < now
+  end
 end

@@ -7,17 +7,17 @@ class User < ActiveRecord::Base
             :through => :event_confirmations,
             :class_name => 'Event',
             :source => :event,
-            :conditions  => {:decision => '1'}
+            :conditions  => ["event_confirmations.decision = 'Yes'"]
   has_many :declined_events,
             :through => :event_confirmations,
             :class_name => 'Event',
             :source => :event,
-            :conditions  => {:decision => '0'}
+            :conditions  => ["event_confirmations.decision = 'No'"]
   has_many :possible_events,
             :through => :event_confirmations,
             :class_name => 'Event',
             :source => :event,
-            :conditions  => {:decision => '2'}
+            :conditions  => ["event_confirmations.decision = 'Maybe'"]
   has_many :comments,
             :as => :commentable
   has_many :attended_events,

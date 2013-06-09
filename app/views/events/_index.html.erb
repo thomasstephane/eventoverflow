@@ -1,7 +1,7 @@
-<h1>All Events</h1>
+<h1>All Upcoming Events</h1>
 
-<% @events.reverse.each do |event| %>
+<% sort_asc(@events).each do |event| %>
 <p>
-  <%= render 'events/single_event' , :event => event %>
+  <%= (render 'events/single_event' , :event => event) if event.upcoming? %>
 </p>
 <% end %>

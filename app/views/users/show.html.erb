@@ -2,17 +2,17 @@
   <%= @user.username %>
 </div>
 
-<div class="upcoming-events">
-  <h2>Upcoming Events</h2>
-  <% @user.upcoming_events.each do |event| %>
-    <%= render 'events/single_event' , :event => event %>
+<div class="accepted-events">
+  <h2>Accepted Upcoming Events</h2>
+  <% sort_desc(@user.accepted_events).each do |event| %>
+    <%= (render 'events/single_event' , :event => event) if event.upcoming? %>
   <% end %>
 </div>
 
-<div class="past-events">
-  <h2>Past Events</h2>
-  <% @user.past_events.each do |event| %>
-    <%= render 'events/single_event' , :event => event %>
+<div class="possible-events">
+  <h2>Possible Upcoming Events</h2>
+  <% @user.possible_events.each do |event| %>
+    <%= (render 'events/single_event' , :event => event) if event.upcoming? %>
   <% end %>
 </div>
 
@@ -20,5 +20,12 @@
   <h2>Commented Events</h2>
   <% @user.commented_events.each do |event| %>
     <%= render 'events/single_event_title' , :event => event %>
+  <% end %>
+</div>
+
+<div class="past-events">
+  <h2>Past Events</h2>
+  <% @user.past_events.each do |event| %>
+    <%= render 'events/single_event' , :event => event %>
   <% end %>
 </div>
