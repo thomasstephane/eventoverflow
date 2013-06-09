@@ -1,17 +1,47 @@
 <div class='container'>
-  <div class='form-box'>
+  <div id='form-box'>
     <% if session[:user_id] %>
     <% else %>
-      <div class='signup'>
-        <p>Sign up</p>
-        <%= render '/users/signup' %>
+
+      <div id="login">
+        <div class="cover">
+          <p>Sign In</p>
+        </div>
+        <div id='login-form'>
+          <%= render '/users/login' %>
+        </div>
       </div>
 
-      <div class='login'>
-        <p>Login</p>
-        <%= render '/users/login' %>
+      <div id="signup">
+        <div class="cover">
+          <p>Sign Up</p>
+        </div>
+        <div id='signup-form'>
+          <%= render '/users/signup' %>
+        </div>
       </div>
+
+      <div id="signin-social">
+        <div id="google-signin">
+          <div class="cover">
+            <p>Sign In with Google</p>
+          </div>
+          <div id='google-signin-link'>
+            <%= link_to 'Sign in with Google', '/auth/google_oauth2' %>
+          </div>
+        </div>
+
+        <div id="facebook-signin">
+          <div class="cover">
+            <p>Sign In with Facebook</p>
+          </div>
+          <div id='facebook-signin-link'>
+            <%= link_to 'Sign in with Facebook', '/auth/facebook' %>
+          </div>
+        </div>
+      </div>      
+
     <% end %>
-    <%= render :partial => 'events/index' %>
   </div>
+  <%= render :partial => 'events/index' %>
 </div>

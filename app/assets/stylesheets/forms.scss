@@ -1,0 +1,75 @@
+#form-box {
+  min-width: 100%;
+  width: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.cover {
+  height: 200px;
+  width: 300px;
+  position: absolute;
+  p {
+    text-align: center;
+    line-height: 200px;
+  }
+}
+
+#signup,
+#login,
+#signin-social {
+  height: 200px;
+  width: 300px;
+  margin: 20px;
+  border: 1px dotted black;
+  display: inline-block;
+}
+
+#signup-form,
+#login-form {
+  height: 200px;
+  width: 300px;
+  margin: auto;
+  padding: 25px;
+  border: 1px dotted black;
+  vertical-align: middle;
+  display: inline-block;
+  input{
+    border: 1px dotted $dark-red;
+    display: block;
+    width: 250px;
+    margin: 5px 0;
+    padding: 2px;
+  }
+
+}
+
+#google-signin,
+#facebook-signin {
+  height: 100px;
+  width: 300px;
+  border: 1px dotted black;
+  display: inline-block;  
+  div.cover {
+    height: 100px;
+    width: 300px;
+    position: absolute;
+    p {
+      text-align: center;
+      line-height: 100px;
+    }
+  }
+}
+
+#google-signin-form,
+#facebook-signin-form {
+    height: 90px;
+    width: 300px;
+    margin: auto;
+    border: 1px dotted black;
+    vertical-align: middle;
+    display: inline-block;
+}

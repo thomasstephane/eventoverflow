@@ -2,9 +2,11 @@
   <h1>Today's Events</h1>
 
   <% sort_asc(@events).each do |event| %>
-  <p>
-    <%= (render 'events/single_event' , :event => event) if event.today? %>
-  </p>
+    <% if event.today? %>
+      <p>
+        <%= (render 'events/single_event' , :event => event)  %>
+      </p>
+    <% end %>
   <% end %>
 </div>
 
@@ -12,9 +14,11 @@
   <h1>Upcoming week Events</h1>
 
   <% sort_asc(@events).each do |event| %>
-  <p>
-    <%= (render 'events/single_event' , :event => event) if event.week? && !event.today? %>
-  </p>
+    <% if event.week? && !event.today? %>
+      <p>
+        <%= (render 'events/single_event' , :event => event) %>
+      </p>
+    <% end %>
   <% end %>
 </div>
 
@@ -22,8 +26,10 @@
   <h1>Other Upcoming Events</h1>
 
   <% sort_asc(@events).each do |event| %>
-  <p>
-    <%= (render 'events/single_event' , :event => event) if event.upcoming? && !event.week? %>
-  </p>
+  <% if event.upcoming? && !event.week? %>
+    <p>
+      <%= (render 'events/single_event' , :event => event)  %>
+      </p>
+    <% end %>
   <% end %>
 </div>

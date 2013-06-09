@@ -3,8 +3,9 @@
   color          : $dark-blue;
   font-size      : 14px;
   text-decoration: none;
+  text-align     : left;
   font-style     : normal;
-  // font-weight    : 400;
+  font-weight    : 400;
   line-height    : 125%;
   margin         : 0;
   padding        : 0;
@@ -12,13 +13,24 @@
   border         : 0;
   background     : none;
   border         : none;
-  // box-sizing     : border-box;
-  // -webkit-box-sizing     : border-box;
-  // display        : block; 
+  box-sizing     : border-box;
+  -webkit-box-sizing     : border-box;
 }
 
 html {
   background-color: $light-cream;
+  min-width: 100%;
+  width: 100%;
+  min-heigth: 100%;
+  heigth: 100%;
+}
+
+body {
+  min-width: 100%;
+  width: 100%;
+  min-heigth: 100%;
+  heigth: 100%;
+  text-align: center;
 }
 
 input,

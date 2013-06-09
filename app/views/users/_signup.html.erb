@@ -1,29 +1,14 @@
-<ul>
-  <%= form_for @user do |f| %>
-
+<%= form_for @user do |f| %>
   <% if flash[:errors_signup] %>
-  <ul>
-    <% flash[:errors_signup].each do |error| %>
-      <li><%= error %></li>
-    <% end %>
-  </ul>
+    <ul>
+      <% flash[:errors_signup].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
   <% end %>
-
-  <li>
-    <%= f.text_field :username, {:required => true, :placeholder => 'Username'} %>
-  </li>
-
-  <li>
-    <%= f.password_field :password, {:required => true, :placeholder => 'Password'} %>
-  </li>
-
-  <li>
-    <%= f.password_field :password_confirmation, {:required => true, :placeholder => 'Password Confirmation'} %>
-  </li>
-
-  <li>
-    <%= f.submit 'Signup' %>
-  </li>
-  <% end %>
-</ul>
+  <%= f.text_field :username, {:required => true, :placeholder => 'Username'} %>
+  <%= f.password_field :password, {:required => true, :placeholder => 'Password'} %>
+  <%= f.password_field :password_confirmation, {:required => true, :placeholder => 'Password Confirmation'} %>
+  <%= f.submit 'Signup' %>
+<% end %>
 
