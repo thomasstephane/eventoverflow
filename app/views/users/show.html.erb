@@ -1,9 +1,9 @@
+<div id="profile">
+  <%= gravatar_for @user %>
+  <p><%= @user.username %></p>
+</div>
+
 <div class="list">
-  
-  <div id='<%= @user.id %>'>
-    <%= gravatar_for @user %>
-    <%= @user.username %>
-  </div>
 
   <div class="accepted-events upcoming">
     <h1>Accepted Upcoming Events</h1>

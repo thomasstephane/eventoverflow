@@ -72,3 +72,23 @@ textarea {
     margin-left: 20px;
   }
 }
+
+#profile {
+  width: 100%;
+  min-width: 100%;
+  text-align: center;
+  img,
+  p {
+    display: inline-block;
+    margin: 20px;
+    vertical-align: middle;
+    height: 80px;
+    line-height: 80px;
+  }
+  p {
+    padding: 0 20px;
+    font-size: 20px;
+    background-color: $light-green;
+    color: $dark-blue;
+  }
+}
