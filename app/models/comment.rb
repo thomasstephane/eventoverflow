@@ -6,7 +6,7 @@ class Comment < ActiveRecord::Base
   has_many :comments, :as => :commentable
   has_many :votes, :as => :votable
 
-  validates :commentable_type, :inclusion => {:in => ['Comment', 'User', 'Event']}
+  validates :commentable_type, :inclusion => {:in => ['Comment', 'Event']}
 
   attr_accessible :comment, :user_id, :event_id, :commentable_type, :commentable_id
 

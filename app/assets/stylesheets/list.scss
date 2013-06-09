@@ -4,7 +4,8 @@
   padding: 20px;
   margin: auto;
   text-align:center;
-  .upcoming {
+  .upcoming,
+  .past-events {
     height: 100%;
     min-width: 200px;
     max-width: 30%;
@@ -24,14 +25,26 @@
       padding: 0 20px;
     }
   }
-  .today {
+  .past-events {
+    max-width: 50%;
+  }
+  .today,
+  .accepted-events {
     h1{
       background-color: $light-red;
       color: $dark-red;
     }
   }
   .week,
-  .other {
+  .other,
+  .commented-events,
+  .possible-events {
+    h1{
+      background-color: $light-blue;
+      color: $dark-blue;
+    }
+  }
+  .past-events {
     h1{
       background-color: $light-brawn;
       color: $dark-brawn;

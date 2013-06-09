@@ -18,8 +18,7 @@ class User < ActiveRecord::Base
             :class_name => 'Event',
             :source => :event,
             :conditions  => ["event_confirmations.decision = 'Maybe'"]
-  has_many :comments,
-            :as => :commentable
+  has_many :comments
   has_many :attended_events,
             :through => :event_confirmations,
             :class_name => 'Event',
@@ -41,9 +40,10 @@ class User < ActiveRecord::Base
   def commented_events
     commented_events = []
     self.comments.each do |comment|
+      p comment
       commented_events << Event.find(comment.event_id)
     end
-    commented_events.uniq
+    p commented_events.uniq
   end
 
   def self.from_omniauth(auth)
