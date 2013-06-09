@@ -1,7 +1,6 @@
 <div class='container'>
   <div class='form-box'>
     <% if session[:user_id] %>
-      <%= render :partial => 'events/index' %>
     <% else %>
       <div class='signup'>
         <p>Sign up</p>
@@ -13,5 +12,6 @@
         <%= render '/users/login' %>
       </div>
     <% end %>
+    <%= render :partial => 'events/index' %>
   </div>
 </div>

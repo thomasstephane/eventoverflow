@@ -19,7 +19,7 @@ describe "Event" do
       visit new_event_path
       fill_in 'Title', with: "my event"
       fill_in 'Description', with: "my event description"
-      fill_in 'Duration', with: 2
+      fill_in 'Duration in hours', with: 2
       fill_in 'Location', with: "At DBC!"
       click_button 'Create Event'
       current_path.should include(root_path)
@@ -29,7 +29,7 @@ describe "Event" do
     it "should warn user if it has no title" do
       visit new_event_path
       fill_in 'Description', with: "my event description"
-      fill_in 'Duration', with: 2
+      fill_in 'Duration in hours', with: 2
       fill_in 'Location', with: "At DBC!"
       click_button 'Create Event'
       page.should have_content 'Your event should have a title'
@@ -38,7 +38,7 @@ describe "Event" do
     it "should warn user if it has no description" do
       visit new_event_path
       fill_in 'Title', with: "my event"
-      fill_in 'Duration', with: 2
+      fill_in 'Duration in hours', with: 2
       fill_in 'Location', with: "At DBC!"
       click_button 'Create Event'
       page.should have_content 'Your event should have a description'
@@ -57,7 +57,7 @@ describe "Event" do
       visit new_event_path
       fill_in 'Title', with: "my event"
       fill_in 'Description', with: "my event description"
-      fill_in 'Duration', with: 2
+      fill_in 'Duration in hours', with: 2
       click_button 'Create Event'
       page.should have_content 'Your event should have a location'
     end

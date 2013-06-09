@@ -1,8 +1,8 @@
 <%= form_for @event do |f| %>
   <%= f.text_field(:title, :placeholder =>  "Title") %>
   <%= f.text_area :description, :placeholder => "Description" %>
-  <%= f.datetime_select :starts_at %>
-  <%= f.text_field :duration, :placeholder => "Duration" %>
+  <%= f.datetime_select :starts_at, :minute_step => 15, :start_year => time_now.year, :default => time_now %>
+  <%= f.text_field :duration, :placeholder => "Duration in hours" %>
   <%= f.text_area :location, :placeholder => "Location" %>
   <%= f.submit %>
 <% end %>
