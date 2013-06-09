@@ -1,7 +1,7 @@
 <div class="comment-add"><a href="#">Add comment</a></div>
 <%= form_for Comment.create do |f| %>
   <p>
-    <%= f.text_field :comment, :placeholder => "Comment" %>
+    <%= f.text_area :comment, :placeholder => "Comment" %>
     <%= f.hidden_field :event_id, :value => event.id %>
     <%= f.hidden_field :commentable_id, :value => commentable.id %>
     <%= f.hidden_field :commentable_type, :value => commentable.class %>
@@ -9,10 +9,4 @@
   <%= f.submit "Post" %>
 <% end %>
 
-<% if @errors %>
-  <ul>
-    <% @errors.each do |error| %>
-      <li><%= error %></li>
-    <% end %>
-  </ul>
-<% end %>
+<div class="error-messages"><p></p></div>
