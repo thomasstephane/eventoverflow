@@ -112,6 +112,7 @@ GEM
     multi_json (1.7.6)
     multipart-post (1.2.0)
     nokogiri (1.5.10)
+<<<<<<< HEAD
     oauth2 (0.8.1)
       faraday (~> 0.8)
       httpauth (~> 0.1)
@@ -128,6 +129,18 @@ GEM
       omniauth-oauth2
     omniauth-oauth2 (1.1.1)
       oauth2 (~> 0.8.0)
+=======
+    oauth (0.4.7)
+    omniauth (1.1.4)
+      hashie (>= 1.2, < 3)
+      rack
+    omniauth-google (1.0.2)
+      multi_json
+      omniauth (~> 1.0)
+      omniauth-oauth
+    omniauth-oauth (1.0.1)
+      oauth
+>>>>>>> a11afbbdda264dd217d861fc55f0184b174c558c
       omniauth (~> 1.0)
     pg (0.15.1)
     polyglot (0.3.3)

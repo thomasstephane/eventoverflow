@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
   has_many :events
+
   has_many :event_confirmations
   has_many :accepted_events,
             :through => :event_confirmations,
@@ -26,6 +27,7 @@ class User < ActiveRecord::Base
             :source => :event
 
   attr_accessible :username, :password, :password_confirmation, :password_digest, :admin, :email
+
   validates :username, :presence => true
 
   def upcoming_events
