@@ -37,9 +37,19 @@ describe 'User' do
       end
     end
 
+    describe 'with incorrect password' do
+      it 'should throw an error' do
+        visit root_path
+        fill_in 'username', with: user.username
+        fill_in 'password', with: 'wrongpassword'
+        click_button 'Login'
+        expect(page).to have_content('Invalid username or password.')
+      end
+    end
+
     describe 'with valid information' do
       before { visit root_path }
-      it "does something cool" do
+      it "logs in and goes to the profile page" do
         fill_in 'username', with: user.username
         fill_in 'password', with: user.password
         click_button 'Login'
