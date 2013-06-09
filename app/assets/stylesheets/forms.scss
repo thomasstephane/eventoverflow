@@ -7,6 +7,25 @@
   padding: 20px;
   text-align: center;
   font-size: 22px;
+  .title-form, 
+  form {
+    margin: auto;
+    max-width: 600px;
+    text-align: center;
+    line-height: 50px;
+    height: 50px;
+    padding: 0 20px;
+    margin-bottom: 20px;
+    h1{
+      font-family: PT Mono;
+      background-color: $dark-red;
+      color: $light-cream;
+      padding: 0 20px;
+      line-height: 50px;
+      text-align: center;
+    }
+  }
+  
 }
 
 .cover {
@@ -137,4 +156,38 @@
 
 #facebook-signin-link {
   margin-top: 10px;
+}
+
+#event_title,
+#event_description,
+#event_location,
+#event_duration,
+input[name='commit'] {
+  width: 100%;
+  min-width: 100%;
+  display: block;
+  font-size: 16px;
+  border: 1px dotted $dark-red;
+  display: block;
+  width: 250px;
+  margin: 5px 0;
+  padding: 5px;
+  color: $dark-red;
+}
+
+input[name='commit'] {
+  text-align: center;
+  cursor: pointer;
+  margin: 12px 0;
+  padding: 12px;
+  color: $dark-blue;
+  &:hover {
+    background-color: $dark-red;
+    color: $light-cream;
+  }
+}
+
+#event_description,
+#event_location {
+  height: 150px;
 }

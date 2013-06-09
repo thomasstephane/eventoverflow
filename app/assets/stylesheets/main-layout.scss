@@ -35,8 +35,13 @@ body {
 }
 
 input,
-textarea {
+textarea,
+select {
   border: 1px solid $dark-red;
+   -webkit-appearance: none;
+   -webkit-box-shadow: 1px 1px 1px #fff;
+   padding: 0.5em 1em 0.5em 0.75em;
+   border-radius: 0;
 }
 
 #nav_bar {
