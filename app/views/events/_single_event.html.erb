@@ -1,2 +1,8 @@
-<div class="event-title"><%= link_to event.title, event %></div>
-<%= render 'events/links', :event => event  %>
+<div class="event-title">
+  <% if current_user %>
+    <%= link_to event.title, event %>
+  <% else %>
+    <%= event.title %>
+  <% end %>   
+  <%= render 'events/links', :event => event  %>
+</div>

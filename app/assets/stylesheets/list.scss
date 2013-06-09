@@ -5,7 +5,9 @@
   margin: auto;
   text-align:center;
   .upcoming {
-    min-width: 20%;
+    height: 100%;
+    min-width: 200px;
+    max-width: 30%;
     display: inline-block;
     vertical-align: top;
     margin: auto 20px;
@@ -28,16 +30,27 @@
       color: $dark-red;
     }
   }
-  .week{
-    h1{
-      background-color: $light-green;
-      color: $dark-green;
-    }
-  }
-  .other{
+  .week,
+  .other {
     h1{
       background-color: $light-brawn;
       color: $dark-brawn;
+    }
+  }
+  .event-title {
+    line-height: 20px;
+    padding: 6px 12px;
+    border: 1px solid transparent;
+    .event-link {
+      display: inline-block;
+      a {
+        color: $light-red;
+        font-size: 11px;
+        margin-left: 12px;
+      }
+    }
+    &:hover {
+      border: 1px dotted $light-blue;
     }
   }
 }
