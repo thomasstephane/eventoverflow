@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
             :class_name => 'Event',
             :source => :event
 
-  attr_accessible :username, :password, :password_confirmation, :password_digest, :admin
+  attr_accessible :username, :password, :password_confirmation, :password_digest, :admin, :email
   validates :username, :presence => true
 
   def upcoming_events
