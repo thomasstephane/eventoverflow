@@ -1,11 +1,18 @@
-<div class="nav_bar">
+<div id="nav_bar">
+  <div id="title">
+    <%= link_to root_path do %>
+      <span>rake db:</span>
+    <% end %>
+  </div>
+  <div id="rolling-title">
+    <%= link_to root_path do %>
+      <span></span>
+    <% end %>
+  </div>
+  <div id="menu">
   <% if current_user %>
     <% if current_uri != new_event_path %>
       <%= link_to "Create an event", new_event_path %>
-    <% end %>
-
-    <% if current_uri != root_path %>
-    <%= link_to "Home", root_path %>
     <% end %>
 
     <% if current_uri != user_path(current_user) %>
@@ -14,4 +21,5 @@
 
     <%= link_to "Logout", '/logout' %>
   <% end %>
+  </div>
 </div>

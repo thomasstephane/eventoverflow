@@ -38,3 +38,37 @@ input,
 textarea {
   border: 1px solid $dark-red;
 }
+
+#nav_bar {
+  width: 100%;
+  min-width: 100%;
+  height: 50px;
+  background-color: $dark-blue;
+  color: $light-cream;
+  div {
+    display: inline-block;
+  }
+  #menu {
+    float: right;
+    a {
+      color: $light-cream;
+      margin: 0 20px;
+      line-height: 50px;
+      font-weight: 300;
+      font-size: 14px;
+    }
+  }
+  #title,
+  #rolling-title {
+    float: left;
+    span {
+      font-family: PT Mono;
+      font-size: 20px;
+      line-height: 50px;
+      color: $light-cream;
+    }
+  }
+  #title {
+    margin-left: 20px;
+  }
+}
