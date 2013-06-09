@@ -3,8 +3,7 @@ class CalendarsController < ApplicationController
   protect_from_forgery
   
   def create
-
-    p @event = Event.find(1)
+    @event = Event.find(params[:event_id])
     @token = current_user.oauth_token
     @client = Event.client_creator
     @client.authorization.access_token = @token
@@ -15,7 +14,7 @@ class CalendarsController < ApplicationController
   end
 
   def add_to_calendar
-    p '******** goog_event'
+    
     p goog_event = {
       'summary' => @event.title,
       'location' => @event.location,
@@ -26,7 +25,7 @@ class CalendarsController < ApplicationController
         'dateTime' => @event.starts_at + @event.duration
       }
     }
-    p '******** results'
+    
     p @result = @client.execute(:api_method => @calendar.events.insert,
       :parameters => {'calendarId' => 'primary'},
       :body => JSON.dump(goog_event),
