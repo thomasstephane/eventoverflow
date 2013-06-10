@@ -8,6 +8,19 @@ task :import_list => :environment do
   status = XmlSimple.xml_in(xml)
   events = status["channel"][0]["item"]
 
+
+  def duration_calc(dstart,dend)
+    if dstart && dend
+      (dend - dstart) / 3600
+    else
+      0
+    end
+  end
+
+  def extern_taken(extern)
+    Event.find_by_extern_id(extern)
+  end
+  
   events.each do |event|
     extern_id = event["id"][0]
     title = event["title"][0]
