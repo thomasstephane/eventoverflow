@@ -1,25 +1,28 @@
-<div class="event <%= @event.id %>">
-  <h1>This Event</h1>
-  <div class="event-buttons">
-    <%= render 'votes/eventnote', :event => @event %>
-    <%= render 'votes/eventvote_buttons', :event => @event %>
+<div id="event">
+  <div id="event-desc">
+    <div id="event-title">
+      <div class="event-buttons">
+        <%= render 'votes/eventnote', :event => @event %>
+        <%= render 'votes/eventvote_buttons', :event => @event %>
+      </div>
+      <h1><%= @event.title %></h1>
+    </div>
+    <p><%= @event.description %></p>
+    <p>Event date: <%= @event.starts_at.strftime("%A %d %B %Y,  %l:%M %P") %></p>
+    <p>Duration: <%= @event.duration_formated %></p>
+    <p>Location: <%= @event.location %></p>
+    <%= render 'events/attend' %>
+    <%= render 'events/links', :event => @event %>
   </div>
-  <ul>
-    <li>title: <%= @event.title %></li>
-    <li>description: <%= @event.description %></li>
-    <li>starts at: <%= @event.starts_at %></li>
-    <li>duration: <%= @event.duration %></li>
-    <li>location: <%= @event.location %></li>
-  </ul>
-  <%= render 'events/attend' %>
-  <%= render 'events/links', :event => @event %>
-</div>
-<%= render 'comments/form', :event => @event, :commentable => @event %>
 
-<% children(@all_comments, @event).reverse.each do |comment| %>
-<div class="comment-buttons">
-  <%= render 'votes/commentnote', :comment => comment %>
-  <%= render 'votes/commentvote_buttons', :comment => comment %>
+  <div id="all_comments">
+  <%= render 'comments/form', :event => @event, :commentable => @event %>
+    <% sort_top(children(@all_comments, @event)).each do |comment| %>
+    <div class="comment-buttons">
+      <%= render 'votes/commentnote', :comment => comment %>
+      <%= render 'votes/commentvote_buttons', :comment => comment %>
+    </div>
+      <%= render 'comments/show', :comment => comment %>
+    <% end %>
+  </div>
 </div>
-  <%= render 'comments/show', :comment => comment %>
-<% end %>

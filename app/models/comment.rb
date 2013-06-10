@@ -13,4 +13,8 @@ class Comment < ActiveRecord::Base
   def sum_votes
     Vote.where("votable_id = ? AND votable_type = 'Comment'", self.id).sum('counter')
   end
+
+  def username
+    User.find(self.user_id).username
+  end
 end

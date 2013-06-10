@@ -1,13 +1,16 @@
 <div class="comment <%= comment.id%>">
   <p><%= comment.comment %></p>
-
+  <%= link_to comment.username, user_path(comment.user) %>
   <%= render 'comments/form', :event => @event, :commentable => comment %>
 
   <% unless children(@all_comments, comment).empty? %>
   <ul>
-    <% children(@all_comments, comment).reverse.each do |child| %>
+    <% sort_top(children(@all_comments, comment)).each do |child| %>
       <li>
-        <%= render 'votes/commentvote_buttons', :comment => child %>
+        <div class="comment-buttons">
+          <%= render 'votes/commentnote', :comment => child %>
+          <%= render 'votes/commentvote_buttons', :comment => child %>
+        </div>
         <%= render 'comments/show', :comment => child %>
       </li>
     <% end %>

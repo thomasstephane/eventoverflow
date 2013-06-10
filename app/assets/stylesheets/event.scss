@@ -1,0 +1,116 @@
+#event {
+  width: 100%;
+  min-width: 100%;
+  padding: 20px;
+  margin: auto;
+  text-align: center;
+  #event-desc {
+    position: relative;
+    clear: both;
+    margin: auto;
+    max-width: 800px;
+    text-align: center;
+    padding: 0 20px;
+    margin-bottom: 20px;
+    p {
+      margin-bottom: 20px;
+    }
+    #event-title {
+      width: 100%;
+      min-width: 100%;
+      display: block;
+      font-family: PT Mono;
+      background-color: $light-blue;
+      padding: 0 20px;
+      margin-bottom: 30px;
+      h1{
+        color: $dark-blue;
+        text-align: center;
+        line-height: 50px;
+      }
+      .event-buttons {
+        position: absolute;
+        line-height: 50px;
+        vertical-align:middle;
+        span.red-border{
+          background: $light-red;
+          border: 1px solid $dark-red;
+        }
+        span.green-border{
+          background: $light-green;
+          border: 1px solid $dark-green;
+        }
+        span.default{
+          background: $light-blue;
+          border: 1px solid $dark-blue;
+        }
+        .arrows span {
+          border: none;
+          background: none;
+        }
+      }
+    }
+    .attend {
+      width: 50%;
+      min-width: 50%;
+      display: inline-block;
+      .event-attend-buttons {
+        form { 
+          span {
+            display: inline-block;
+            vertical-align: middle;
+            label {
+
+            }
+            input {
+              -webkit-appearance: none;
+              position: relative;
+              width: 25px;
+              height: 25px;
+              font-size: 18px;
+              cursor: pointer;
+              margin-right: 10px;
+              &:checked {
+                border: 1px solid $light-green;
+                &:after {
+                  content: '\295';
+                  font-size: 28px;
+                  position: absolute;
+                  top: 0px;
+                  bottom: 0px;
+                  right: 0px;
+                  left: 0px;
+                  color: $light-green;
+                  background-color: $light-green;
+                }
+              }
+            }
+          }
+          input {
+            border: 1px solid $light-green;
+            width: 40%;
+            min-width: 40%;
+            display: inline-block;
+          }
+          input[type=submit]:hover {
+            background-color: $light-green;
+            color: $dark-green;
+          }
+        }
+      }
+    }
+  }
+  #all_comments {
+    margin: auto;
+    max-width: 800px;
+    text-align: center;
+    padding: 0 20px;
+    margin-bottom: 20px;
+    .comment {
+      margin-left: 30px;
+    }
+  }
+  .new_comment {
+    display: none;
+  }
+}

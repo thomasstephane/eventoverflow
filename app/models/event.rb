@@ -35,6 +35,15 @@ class Event < ActiveRecord::Base
     self.starts_at.getlocal < now
   end
 
+  def duration_formated
+    minutes = ((self.duration.to_f - self.duration.to_i.to_f) * 60).to_i.to_s
+    if minutes == "0"
+      self.duration.to_i.to_s + " h"
+    else
+      self.duration.to_i.to_s + " h " + minutes + " min"
+    end
+  end
+
   private
 
   def days_shift(days)
