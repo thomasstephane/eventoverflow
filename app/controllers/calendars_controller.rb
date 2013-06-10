@@ -15,7 +15,7 @@ class CalendarsController < ApplicationController
 
   def add_to_calendar
     
-    p goog_event = {
+    goog_event = {
       'summary' => @event.title,
       'location' => @event.location,
       'start' => {
@@ -26,7 +26,7 @@ class CalendarsController < ApplicationController
       }
     }
     
-    p @result = @client.execute(:api_method => @calendar.events.insert,
+    @result = @client.execute(:api_method => @calendar.events.insert,
       :parameters => {'calendarId' => 'primary'},
       :body => JSON.dump(goog_event),
       :headers => {'Content-Type' => 'application/json'})

@@ -25,7 +25,7 @@ describe Vote do
 
     it "should decrease vote count" do
       expect {
-        page.find(".event-buttons .arrows").first('span').click_button('V')
+        page.find(".event-buttons .arrows span:last-child").click_button('V')
       }.to change{event.reload.sum_votes}.from(0).to(-1)
     end
 
@@ -70,40 +70,40 @@ describe Vote do
     end
 
     it "should increase vote count" do
-      page.find(".comment-buttons").click_button('Upvote')
+      page.find(".comment-buttons .arrows").first('span').click_button('V')
       page.find(".comment-vote").should have_content("1")
     end
 
     it "should decrease vote count" do
-      page.find(".comment-buttons").click_button('Downvote')
+      page.find(".comment-buttons .arrows span:last-child").click_button('V')
       page.find(".comment-vote").should have_content("-1")
     end
 
     it "twice upvote should leave the count to where it was" do
-      page.find(".comment-buttons").click_button('Upvote')
+      page.find(".comment-buttons .arrows").first('span').click_button('V')
       page.find(".comment-vote").should have_content("1")
-      page.find(".comment-buttons").click_button('Upvote')
+      page.find(".comment-buttons .arrows").first('span').click_button('V')
       page.find(".comment-vote").should have_content("0")
     end
 
     it "twice should leave the count to where it was" do
-      page.find(".comment-buttons").click_button('Downvote')
+      page.find(".comment-buttons .arrows span:last-child").click_button('V')
       page.find(".comment-vote").should have_content("-1")
-      page.find(".comment-buttons").click_button('Downvote')
+      page.find(".comment-buttons .arrows span:last-child").click_button('V')
       page.find(".comment-vote").should have_content("0")
     end
 
     it "upvote followed by downvote should leave the count to where it was" do
-      page.find(".comment-buttons").click_button('Upvote')
+      page.find(".comment-buttons .arrows").first('span').click_button('V')
       page.find(".comment-vote").should have_content("1")
-      page.find(".comment-buttons").click_button('Downvote')
+      page.find(".comment-buttons .arrows span:last-child").click_button('V')
       page.find(".comment-vote").should have_content("0")
     end
 
     it "downvote followed by downvote should leave the count to where it was" do
-      page.find(".comment-buttons").click_button('Downvote')
+      page.find(".comment-buttons .arrows span:last-child").click_button('V')
       page.find(".comment-vote").should have_content("-1")
-      page.find(".comment-buttons").click_button('Upvote')
+      page.find(".comment-buttons .arrows").first('span').click_button('V')
       page.find(".comment-vote").should have_content("0")
     end
   end

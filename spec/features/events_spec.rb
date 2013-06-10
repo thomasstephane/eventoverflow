@@ -19,7 +19,7 @@ describe "Event" do
       visit new_event_path
       fill_in 'Title', with: "my event"
       fill_in 'Description', with: "my event description"
-      fill_in 'Duration in hours', with: 2
+      fill_in 'Duration in hours. eg: 2.5 for 2 h 30 min', with: 2
       fill_in 'Location', with: "At DBC!"
       click_button 'Create Event'
       current_path.should include(root_path)
@@ -29,7 +29,7 @@ describe "Event" do
     it "should warn user if it has no title" do
       visit new_event_path
       fill_in 'Description', with: "my event description"
-      fill_in 'Duration in hours', with: 2
+      fill_in 'Duration in hours. eg: 2.5 for 2 h 30 min', with: 2
       fill_in 'Location', with: "At DBC!"
       click_button 'Create Event'
       page.should have_content 'Your event should have a title'
@@ -38,7 +38,7 @@ describe "Event" do
     it "should warn user if it has no description" do
       visit new_event_path
       fill_in 'Title', with: "my event"
-      fill_in 'Duration in hours', with: 2
+      fill_in 'Duration in hours. eg: 2.5 for 2 h 30 min', with: 2
       fill_in 'Location', with: "At DBC!"
       click_button 'Create Event'
       page.should have_content 'Your event should have a description'
@@ -57,7 +57,7 @@ describe "Event" do
       visit new_event_path
       fill_in 'Title', with: "my event"
       fill_in 'Description', with: "my event description"
-      fill_in 'Duration in hours', with: 2
+      fill_in 'Duration in hours. eg: 2.5 for 2 h 30 min', with: 2
       click_button 'Create Event'
       page.should have_content 'Your event should have a location'
     end
@@ -91,8 +91,8 @@ describe "Event" do
       
       it "should display edit and delete links for the creator" do
         visit event_url(event)
-        page.find('.event').should have_content 'Edit'
-        page.find('.event').should have_content 'Delete'
+        page.find('#event').should have_content 'Edit'
+        page.find('#event').should have_content 'Delete'
       end 
       
       it "should not display edit and delete links the random user " do
@@ -102,8 +102,8 @@ describe "Event" do
         fill_in 'password', with: dude.password
         click_button 'rake db:login'
         visit event_url(event)
-        page.find('.event').should_not have_content 'Edit'
-        page.find('.event').should_not have_content 'Delete'
+        page.find('#event').should_not have_content 'Edit'
+        page.find('#event').should_not have_content 'Delete'
       end
       
       it "should display edit and delete links for a user with admin rights" do
@@ -113,8 +113,8 @@ describe "Event" do
         fill_in 'password', with: admin.password
         click_button 'rake db:login'
         visit event_url(event)
-        page.find('.event').should have_content 'Edit'
-        page.find('.event').should have_content 'Delete'
+        page.find('#event').should have_content 'Edit'
+        page.find('#event').should have_content 'Delete'
       end
     end
 
