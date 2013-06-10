@@ -17,6 +17,10 @@ def duration_calc(dstart,dend)
   end
 end
 
+def extern_taken(extern)
+  Event.find_by_extern_id(extern)
+end
+
   events.each do |event|
     extern_id = event["id"][0]
     title = event["title"][0]
@@ -36,7 +40,8 @@ end
     zip = event["x-calconnect-venue"][0]['adr'][0]["x-calconnect-postalcode"][0]
     country = event["x-calconnect-venue"][0]['adr'][0]["x-calconnect-country"][0]
     image_url = (event["image"][0]["url"][0] if event["image"][0]["url"]) if event["image"]
-    Event.create(
+    unless extern_taken(extern_id.to_i) do
+      Event.create(
       :user_id => 4,
       :extern_id => extern_id.to_i,
       :title => title.gsub("Event: ",""),
@@ -56,6 +61,7 @@ end
       :zip => zip.to_i,
       :country => country,
       :image_url => image_url
-    )
+      )
+    end
   end
 end

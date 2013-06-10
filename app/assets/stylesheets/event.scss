@@ -12,6 +12,8 @@
     text-align: center;
     margin-bottom: 20px;
     p {
+      text-indent: 20px;
+      text-align: justify;
       margin-bottom: 20px;
     }
     #event-title {
@@ -23,6 +25,7 @@
       padding: 0 20px;
       margin-bottom: 12px;
       h1{
+        text-indent: 75px;
         color: $dark-blue;
         text-align: center;
         line-height: 50px;
@@ -170,6 +173,8 @@
         display: inline-block;
       }
       p {
+        text-indent: 20px;
+        text-align: justify;
         display: inline-block;
       }
       ul{

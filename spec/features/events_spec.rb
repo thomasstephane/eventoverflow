@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Event" do
   let(:user) { create(:user) }
-  let! (:event) { create(:event, :title => "my event", :description => "my event description")}
+  let! (:event) { create(:event, :title => "my event", :description => "my event description", :extern_id => 1)}
   let! (:admin) {create(:user, username: "admin", admin: true)}
   let! (:dude) {create(:user, username: "dude", )}
 
@@ -20,9 +20,12 @@ describe "Event" do
       fill_in 'Title', with: "my event"
       fill_in 'Description', with: "my event description"
       fill_in 'Duration in hours. eg: 2.5 for 2 h 30 min', with: 2
-      fill_in 'Location', with: "At DBC!"
+      fill_in 'Zip code', with: 94105
+      fill_in 'Street', with: "my street"
+      fill_in 'State', with: "my state"
+      fill_in 'City', with: "my city"
       click_button 'Create Event'
-      current_path.should include(root_path)
+      current_path.should eq(root_path)
     end
 
 
@@ -30,7 +33,10 @@ describe "Event" do
       visit new_event_path
       fill_in 'Description', with: "my event description"
       fill_in 'Duration in hours. eg: 2.5 for 2 h 30 min', with: 2
-      fill_in 'Location', with: "At DBC!"
+      fill_in 'Zip code', with: 94105
+      fill_in 'Street', with: "my street"
+      fill_in 'State', with: "my state"
+      fill_in 'City', with: "my city"
       click_button 'Create Event'
       page.should have_content 'Your event should have a title'
     end
@@ -39,7 +45,10 @@ describe "Event" do
       visit new_event_path
       fill_in 'Title', with: "my event"
       fill_in 'Duration in hours. eg: 2.5 for 2 h 30 min', with: 2
-      fill_in 'Location', with: "At DBC!"
+      fill_in 'Zip code', with: 94105
+      fill_in 'Street', with: "my street"
+      fill_in 'State', with: "my state"
+      fill_in 'City', with: "my city"
       click_button 'Create Event'
       page.should have_content 'Your event should have a description'
     end
@@ -48,18 +57,48 @@ describe "Event" do
       visit new_event_path
       fill_in 'Title', with: "my event"
       fill_in 'Description', with: "my event description"
-      fill_in 'Location', with: "At DBC!"
+      fill_in 'Zip code', with: 94105
+      fill_in 'Street', with: "my street"
+      fill_in 'State', with: "my state"
+      fill_in 'City', with: "my city"
       click_button 'Create Event'
       page.should have_content 'Your event should have a duration'
     end
 
-    it "should warn user if it has no location" do
+    it "should warn user if it has no zip" do
       visit new_event_path
       fill_in 'Title', with: "my event"
       fill_in 'Description', with: "my event description"
       fill_in 'Duration in hours. eg: 2.5 for 2 h 30 min', with: 2
+      fill_in 'Street', with: "my street"
+      fill_in 'State', with: "my state"
+      fill_in 'City', with: "my city"
       click_button 'Create Event'
-      page.should have_content 'Your event should have a location'
+      page.should have_content 'Your event should have a zip'
+    end
+
+    it "should warn user if it has no street" do
+      visit new_event_path
+      fill_in 'Title', with: "my event"
+      fill_in 'Description', with: "my event description"
+      fill_in 'Duration in hours. eg: 2.5 for 2 h 30 min', with: 2
+      fill_in 'Zip code', with: 94105
+      fill_in 'State', with: "my state"
+      fill_in 'City', with: "my city"
+      click_button 'Create Event'
+      page.should have_content 'Your event should have a street'
+    end
+
+    it "should warn user if it has no city" do
+      visit new_event_path
+      fill_in 'Title', with: "my event"
+      fill_in 'Description', with: "my event description"
+      fill_in 'Duration in hours. eg: 2.5 for 2 h 30 min', with: 2
+      fill_in 'Street', with: "my street"
+      fill_in 'State', with: "my state"
+      fill_in 'Zip code', with: 94105
+      click_button 'Create Event'
+      page.should have_content 'Your event should have a city'
     end
 
     it "should multi-warn user if multi-error" do
@@ -68,7 +107,10 @@ describe "Event" do
       click_button 'Create Event'
       page.should have_content 'Your event should have a description'
       page.should have_content 'Your event should have a duration'
-      page.should have_content 'Your event should have a location'
+      page.should have_content 'Your event should have a street'
+      page.should have_content 'Your event should have a zip'
+      page.should have_content 'Your event should have a region'
+      page.should have_content 'Your event should have a city'
     end
 
   end

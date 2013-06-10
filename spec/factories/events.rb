@@ -10,7 +10,7 @@ FactoryGirl.define do
     description "My event details"
     starts_at (Time.now + 1000000).to_date.to_time
     duration 2
-    location "My event address"
+    city "San Francisco"
     association :user
   end
 

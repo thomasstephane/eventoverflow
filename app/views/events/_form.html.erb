@@ -3,6 +3,22 @@
   <%= f.text_area :description, :placeholder => "Description" %>
   <%= f.datetime_select :starts_at, :minute_step => 15, :start_year => time_now.year, :default => time_now %>
   <%= f.text_field :duration, :placeholder => "Duration in hours. eg: 2.5 for 2 h 30 min" %>
-  <%= f.text_area :location, :placeholder => "Location" %>
+  <div class="more-options">
+    <%= f.text_field :venue_name, :placeholder => "Venue Name" %>
+  </div>
+  <%= f.text_field :street, :placeholder => "Street" %>
+  <%= f.text_field :zip, :placeholder => "Zip code" %>
+  <%= f.text_field :region, :placeholder => "State" %>
+  <%= f.text_field :city, :placeholder => "City" %>
+  <div class="more-options">
+    <%= f.text_field :country, :placeholder => "Country" %>
+    <%= f.text_field :lat, :placeholder => "Latitude" %>
+    <%= f.text_field :long, :placeholder => "Longitude" %>
+    <%= f.text_field :recurrence, :placeholder => "Recurrence" %>
+    <%= f.text_field :phone, :placeholder => "Phone" %>
+    <%= f.text_field :image_url, :placeholder => "Image Url" %>
+    <%= f.text_field :guid, :placeholder => "Guid" %>
+  </div>
+  <div id="options-display"><%= link_to "More Options", "#" %></div>
   <%= f.submit %>
 <% end %>

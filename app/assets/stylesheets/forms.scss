@@ -37,7 +37,7 @@
   @include border_rad_all;
   p {
     @include trans_all_0_3_ease_in_0_2;
-      color: $dark-blue;
+    color: $dark-blue;
     opacity: 1;
     font-size: 20px;
     text-align: center;
@@ -160,9 +160,21 @@
 
 #event_title,
 #event_description,
-#event_location,
 #event_duration,
-input[name='commit'] {
+#event_venue_name,
+#event_street,
+#event_image_url,
+#event_guid,
+#event_city,
+#event_zip,
+#event_region,
+#event_country,
+#event_recurrence,
+#event_phone,
+#event_lat,
+#event_long,
+input[name='commit'],
+#options-display a {
   width: 100%;
   min-width: 100%;
   display: block;
@@ -175,12 +187,12 @@ input[name='commit'] {
   color: $dark-red;
 }
 
-input[name='commit'] {
+input[name='commit'],
+#options-display a {
   text-align: center;
   cursor: pointer;
   margin: 12px 0;
   padding: 12px;
-  color: $dark-blue;
   &:hover {
     background-color: $dark-red;
     color: $light-cream;
@@ -189,6 +201,46 @@ input[name='commit'] {
 }
 
 #event_description,
-#event_location {
+#event_location,
+#event_guid {
   height: 150px;
+}
+
+#event_city,
+#event_zip,
+#event_region,
+#event_country,
+#event_recurrence,
+#event_phone,
+#event_lat,
+#event_long {
+  width: 32%;
+  min-width: 32%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+#event_recurrence,
+#event_phone {
+  width: 49%;
+  min-width: 49%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+#event_recurrence,
+#event_zip,
+#event_country {
+  float: left;
+}
+
+#event_phone,
+#event_city,
+#event_long {
+  float: right;
+}
+
+.more-options {
+  text-align: center;
+  display: none;
 }

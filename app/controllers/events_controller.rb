@@ -20,6 +20,7 @@ class EventsController < ApplicationController
     else
       @event = Event.new(params[:event])
       @event.starts_at -= Time.now.utc_offset
+      @event.extern_id = @event.id if @event.extern_id = nil
       current_user.events << @event
       @event.save
       @events = Event.all
