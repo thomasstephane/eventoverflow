@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130609002641) do
+ActiveRecord::Schema.define(:version => 20130610065545) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "uid"
@@ -46,6 +46,21 @@ ActiveRecord::Schema.define(:version => 20130609002641) do
     t.datetime "starts_at"
     t.integer  "duration"
     t.text     "location"
+    t.integer  "extern_id"
+    t.string   "phone"
+    t.string   "guid"
+    t.string   "link"
+    t.string   "creator"
+    t.string   "lat"
+    t.string   "long"
+    t.string   "venue_name"
+    t.string   "street"
+    t.string   "city"
+    t.string   "region"
+    t.integer  "zip"
+    t.string   "country"
+    t.string   "recurrence"
+    t.string   "image_url"
   end
 
   create_table "users", :force => true do |t|

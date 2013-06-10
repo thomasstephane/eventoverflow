@@ -6,7 +6,7 @@ class Event < ActiveRecord::Base
   has_many :event_confirmations
   has_many :users, :through => :event_confirmations
 
-  attr_accessible :title, :description, :starts_at, :duration, :location, :user_id
+  attr_accessible :title, :description, :starts_at, :duration, :location, :user_id,  :extern_id, :phone, :guid, :link, :creator, :lat, :long, :venue_name, :street, :city, :region, :zip, :country, :recurrence, :image_url
   def sum_votes
     Vote.where("votable_id = ? AND votable_type = 'Event'", self.id).sum('counter')
   end

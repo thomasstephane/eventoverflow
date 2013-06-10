@@ -7,6 +7,9 @@ gem 'bcrypt-ruby'
 gem 'google-api-client', :require => 'google/api_client'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
+gem 'nokogiri'
+gem 'mechanize'
+gem 'xml-simple'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
