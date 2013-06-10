@@ -50,4 +50,8 @@ class Event < ActiveRecord::Base
     now = Time.now
     Time.at((DateTime.new(now.year, now.month, now.day + days, 0, 0, 0, 0)).to_i - now.utc_offset)
   end
+
+  def self.client_creator
+    Google::APIClient.new
+  end
 end
