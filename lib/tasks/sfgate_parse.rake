@@ -6,20 +6,7 @@ task :import_list => :environment do
   a.get("http://events.sfgate.com/search?cat=3&new=n&rss=1&sort=0&srad=85.0&srss=10&st=event&st_select=event&swhat=&swhen=&swhere=San+Francisco%2C+CA")
   xml = a.page.body
   status = XmlSimple.xml_in(xml)
-
   events = status["channel"][0]["item"]
-
-def duration_calc(dstart,dend)
-  if dstart && dend
-    (dend - dstart) / 3600
-  else
-    0
-  end
-end
-
-def extern_taken(extern)
-  Event.find_by_extern_id(extern)
-end
 
   events.each do |event|
     extern_id = event["id"][0]
@@ -40,7 +27,7 @@ end
     zip = event["x-calconnect-venue"][0]['adr'][0]["x-calconnect-postalcode"][0]
     country = event["x-calconnect-venue"][0]['adr'][0]["x-calconnect-country"][0]
     image_url = (event["image"][0]["url"][0] if event["image"][0]["url"]) if event["image"]
-    unless extern_taken(extern_id.to_i) do
+    if !extern_taken(extern_id.to_i)
       Event.create(
       :user_id => 4,
       :extern_id => extern_id.to_i,
