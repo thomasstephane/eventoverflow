@@ -44,6 +44,10 @@ class Event < ActiveRecord::Base
     end
   end
 
+  def username
+    User.find(self.user_id).username
+  end
+
   private
 
   def days_shift(days)

@@ -7,22 +7,29 @@
       </div>
       <h1><%= @event.title %></h1>
     </div>
+    <h6><%= "by " + @event.username %></h6>
     <p><%= @event.description %></p>
     <p>Event date: <%= @event.starts_at.strftime("%A %d %B %Y,  %l:%M %P") %></p>
     <p>Duration: <%= @event.duration_formated %></p>
     <p>Location: <%= @event.location %></p>
+    <div class="links">
+      <%= render 'events/links', :event => @event %>
+    </div>
     <%= render 'events/attend' %>
-    <%= render 'events/links', :event => @event %>
+    <div class="calendar">
+      <%= link_to 'Add to Google Calendar', calendars_path(:event_id => @event.id), :method => :post %>
+    </div>
   </div>
 
   <div id="all_comments">
+
   <%= render 'comments/form', :event => @event, :commentable => @event %>
+  <ul>
     <% sort_top(children(@all_comments, @event)).each do |comment| %>
-    <div class="comment-buttons">
-      <%= render 'votes/commentnote', :comment => comment %>
-      <%= render 'votes/commentvote_buttons', :comment => comment %>
-    </div>
-      <%= render 'comments/show', :comment => comment %>
+    <li>
+        <%= render 'comments/show', :comment => comment %>
+    </li>
     <% end %>
+    </ul>
   </div>
 </div>

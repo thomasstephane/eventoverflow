@@ -10,7 +10,6 @@
     margin: auto;
     max-width: 800px;
     text-align: center;
-    padding: 0 20px;
     margin-bottom: 20px;
     p {
       margin-bottom: 20px;
@@ -22,7 +21,7 @@
       font-family: PT Mono;
       background-color: $light-blue;
       padding: 0 20px;
-      margin-bottom: 30px;
+      margin-bottom: 12px;
       h1{
         color: $dark-blue;
         text-align: center;
@@ -51,9 +50,26 @@
       }
     }
     .attend {
-      width: 50%;
-      min-width: 50%;
+      float:left;
+      padding: 0 10px;
+      width: 48%;
+      min-width: 48%;
       display: inline-block;
+      border: 1px solid $light-green;
+      background: $light-green;
+      color: $dark-green;
+      max-height:50px;
+      height:50px;
+      p {      
+        text-align: center;
+        margin-bottom: 0;
+        font-size: 14px;
+        padding-top:6px;
+      }
+      .attend-change {
+        text-align: center;
+        margin-bottom: 0;
+      }
       .event-attend-buttons {
         form { 
           span {
@@ -71,7 +87,7 @@
               cursor: pointer;
               margin-right: 10px;
               &:checked {
-                border: 1px solid $light-green;
+                border: 1px solid $light-cream;
                 &:after {
                   content: '\295';
                   font-size: 28px;
@@ -87,27 +103,99 @@
             }
           }
           input {
-            border: 1px solid $light-green;
+            border: 1px solid $light-cream;
+            background-color: $light-cream;
             width: 40%;
             min-width: 40%;
             display: inline-block;
           }
-          input[type=submit]:hover {
-            background-color: $light-green;
-            color: $dark-green;
+          input[type=submit] {
+            margin: 6px 0 0 0;
+            padding: 6px;
+            &:hover {
+              background-color: $light-green;
+              color: $dark-green;
+            }
           }
         }
       }
     }
+    .calendar {
+      float: right;
+      width: 48%;
+      min-width: 48%;
+      display: inline-block;
+      vertical-align: top;
+      text-align: center;
+      border: 1px solid $light-red;
+      background: $light-red;
+      color: $dark-red;
+      margin-left: 10px;
+      line-height: 50px;
+      max-height:50px;
+    }
+    .links {
+      padding-bottom: 10px;
+      .event-link {
+        display: inline-block;
+        a {
+          color: $light-red;
+          font-size: 11px;
+          margin-left: 12px;
+        }
+      }
+    }
+    h6 {
+          font-size: 11px;
+          margin-bottom:18px;
+        }
   }
   #all_comments {
-    margin: auto;
+    margin: 70px auto;
     max-width: 800px;
     text-align: center;
-    padding: 0 20px;
+    padding: 0;
     margin-bottom: 20px;
+    ul{
+      list-style: none;
+      list-style-position: inside;
+      -webkit-padding-start: 0;
+      -webkit-margin-before: 0;
+      -webkit-margin-after: 0;
+    }
+
     .comment {
-      margin-left: 30px;
+      margin: 10px 0 10px 30px;
+      .comment-buttons {
+        display: inline-block;
+      }
+      p {
+        display: inline-block;
+      }
+      ul{
+        list-style: none;
+        list-style-position: inside;
+        -webkit-padding-start: 0;
+        -webkit-margin-before: 0;
+        -webkit-margin-after: 0;
+      }
+      h6 {
+        display: block;
+        .author {
+          font-size: 11px;
+        }
+      }
+    }
+  }
+  .new_comment,
+  .comment-add, {
+    a {
+      font-size: 13px;
+    }
+    textarea{
+      height: 100px;
+      width: 100%;
+      min-width: 100%;
     }
   }
   .new_comment {

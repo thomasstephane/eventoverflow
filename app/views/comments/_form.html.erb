@@ -1,11 +1,9 @@
-<div class="comment-add"><a href="#">Add comment</a></div>
+<div class="comment-add"><a href="#">> Add comment</a></div>
 <%= form_for Comment.create do |f| %>
-  <p>
     <%= f.text_area :comment, :placeholder => "Comment" %>
     <%= f.hidden_field :event_id, :value => event.id %>
     <%= f.hidden_field :commentable_id, :value => commentable.id %>
     <%= f.hidden_field :commentable_type, :value => commentable.class %>
-  </p>
   <%= f.submit "Post" %>
 <% end %>
 

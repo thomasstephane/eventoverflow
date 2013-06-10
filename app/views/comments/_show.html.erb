@@ -1,16 +1,16 @@
 <div class="comment <%= comment.id%>">
+  <div class="comment-buttons">
+    <%= render 'votes/commentnote', :comment => comment %>
+    <%= render 'votes/commentvote_buttons', :comment => comment %>
+  </div>
   <p><%= comment.comment %></p>
-  <%= link_to comment.username, user_path(comment.user) %>
+  <h6><%= link_to ("by " + comment.username), user_path(comment.user), :class => "author" %></h6>
   <%= render 'comments/form', :event => @event, :commentable => comment %>
 
   <% unless children(@all_comments, comment).empty? %>
   <ul>
     <% sort_top(children(@all_comments, comment)).each do |child| %>
       <li>
-        <div class="comment-buttons">
-          <%= render 'votes/commentnote', :comment => child %>
-          <%= render 'votes/commentvote_buttons', :comment => child %>
-        </div>
         <%= render 'comments/show', :comment => child %>
       </li>
     <% end %>

@@ -38,8 +38,8 @@ input,
 textarea,
 select {
   border: 1px dotted $dark-red;
-   -webkit-appearance: none;
-   border-radius: 0;
+  -webkit-appearance: none;
+  border-radius: 0;
 }
 
 select {
@@ -47,6 +47,15 @@ select {
   -webkit-box-shadow: 1px 1px 1px #fff;
   padding: 10px 22px 10px 12px;
   background: $arrow center right no-repeat;
+}
+
+
+ul{
+  list-style: none;
+  list-style-position: inside;
+  -webkit-padding-start: 0;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
 }
 
 #nav_bar {
