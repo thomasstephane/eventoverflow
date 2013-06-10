@@ -37,11 +37,16 @@ body {
 input,
 textarea,
 select {
-  border: 1px solid $dark-red;
+  border: 1px dotted $dark-red;
    -webkit-appearance: none;
-   -webkit-box-shadow: 1px 1px 1px #fff;
-   padding: 0.5em 1em 0.5em 0.75em;
    border-radius: 0;
+}
+
+select {
+  -webkit-appearance: none;
+  -webkit-box-shadow: 1px 1px 1px #fff;
+  padding: 10px 22px 10px 12px;
+  background: $arrow center right no-repeat;
 }
 
 #nav_bar {

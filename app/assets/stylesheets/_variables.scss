@@ -1,13 +1,17 @@
 $light-cream: #f8e9da;
 $light-blue: #4981b6;
+$light-blue-25: rgba(73, 129, 182, 0.25);
 $dark-blue: #16161f;
 $light-red: #bf4755;
+$light-red-25: rgba(191, 71, 85, 0.25);
 $dark-red: #3b161b;
 $light-green: #2e8072;
+$light-green-25: rgba(46, 128, 114, 0.25);
 $dark-green: #163d37;
 $light-brawn: #784935;
 $dark-brawn: #241710;
 $background: url(asset_path('background.jpg', image));
+$arrow: url(asset_path('arrow.png', image));
 
 @mixin trans_all_0_5_ease_in {
   -webkit-transition: all 0.5s ease-in;

@@ -5,10 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-User.create(username: "Dexter", password: "pass", admin: true)
-User.create(username: "Ken", password: "pass", admin: true)
-User.create(username: "Allen", password: "pass", admin: true)
-User.create(username: "Stephan", password: "pass", admin: true)
+User.create(username: "Dexter", password: "pass", admin: true, email: "dvubox@gmail.com")
+User.create(username: "Ken", password: "pass", admin: true, email: "kenrettberg@gmail.com")
+User.create(username: "Allen", password: "pass", admin: true, email: "allen@quantma.com")
+User.create(username: "Stephan", password: "pass", admin: true, email: "thomas.stephn@gmail.com")
 
 4.times do |i|
   user = User.find(i + 1) 

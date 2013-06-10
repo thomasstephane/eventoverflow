@@ -42,7 +42,7 @@ describe 'User' do
         visit root_path
         fill_in 'username', with: user.username
         fill_in 'password', with: 'wrongpassword'
-        click_button 'Login'
+        click_button 'rake db:login'
         expect(page).to have_content('Invalid username or password.')
       end
     end

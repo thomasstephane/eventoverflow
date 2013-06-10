@@ -1,0 +1,10 @@
+<% case  %>
+<% when comment.sum_votes > 0 %>
+  <span class="comment-vote green-border">
+<% when comment.sum_votes < 0 %>
+  <span class="comment-vote red-border">
+<% else %>
+  <span class="comment-vote default">
+<% end %>
+<%= comment.sum_votes %>
+</span>

@@ -1,4 +1,7 @@
 <div class="event-title">
+  <div class="event-buttons">
+    <%= render 'votes/eventnote', :event => event %>
+  </div>
   <% if current_user %>
     <%= link_to event.title, event %>
   <% else %>

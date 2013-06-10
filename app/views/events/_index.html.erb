@@ -2,7 +2,7 @@
   <div class="today upcoming">
     <h1>Today's Events</h1>
 
-    <% sort_asc(@events).each do |event| %>
+    <% sort_top(sort_asc(@events)).each do |event| %>
       <% if event.today? %>
         <p>
           <%= (render 'events/single_event' , :event => event)  %>
@@ -14,7 +14,7 @@
   <div class="week upcoming">
     <h1>Events for the next 7 days</h1>
 
-    <% sort_asc(@events).each do |event| %>
+    <% sort_top(sort_asc(@events)).each do |event| %>
       <% if event.week? && !event.today? %>
         <p>
           <%= (render 'events/single_event' , :event => event) %>
@@ -26,7 +26,7 @@
   <div class="other upcoming">
     <h1>Other Upcoming Events</h1>
 
-    <% sort_asc(@events).each do |event| %>
+    <% sort_top(sort_asc(@events)).each do |event| %>
     <% if event.upcoming? && !event.week? %>
       <p>
         <%= (render 'events/single_event' , :event => event)  %>

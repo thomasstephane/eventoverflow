@@ -1,0 +1,10 @@
+<% case  %>
+<% when event.sum_votes > 0 %>
+  <span class="event-vote green-border">
+<% when event.sum_votes < 0 %>
+  <span class="event-vote red-border">
+<% else %>
+  <span class="event-vote default">
+<% end %>
+<%= event.sum_votes %>
+</span>

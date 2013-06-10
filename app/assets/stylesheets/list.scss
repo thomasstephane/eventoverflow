@@ -34,6 +34,11 @@
       background-color: $light-red;
       color: $dark-red;
     }
+    .event-title {
+      &:hover {
+        border: 1px dotted $light-red;
+      }
+    }
   }
   .week,
   .other,
@@ -52,7 +57,7 @@
   }
   .event-title {
     line-height: 20px;
-    padding: 6px 12px;
+    padding: 6px 6px;
     border: 1px solid transparent;
     .event-link {
       display: inline-block;
