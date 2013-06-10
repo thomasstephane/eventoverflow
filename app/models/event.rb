@@ -48,6 +48,14 @@ class Event < ActiveRecord::Base
     User.find(self.user_id).username
   end
 
+  def attendees_yes
+    EventConfirmation.where("event_id = ? and decision = 'Yes'",self.id).count
+  end
+
+  def attendees_maybe
+    EventConfirmation.where("event_id = ? and decision = 'Maybe'",self.id).count
+  end
+
   private
 
   def days_shift(days)

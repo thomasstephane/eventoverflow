@@ -19,11 +19,6 @@ class SessionController < ApplicationController
     redirect_to root_path
   end
 
-  # def omniauth_failure
-  #   flash[:notice] = "Fail B!"
-  #   redirect_to root_path
-  # end
-
   private
 
   def auth

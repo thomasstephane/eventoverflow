@@ -29,7 +29,7 @@ class CalendarsController < ApplicationController
     @result = @client.execute(:api_method => @calendar.events.insert,
       :parameters => {'calendarId' => 'primary'},
       :body => JSON.dump(goog_event),
-      :headers => {'Content-Type' => 'application/json'})
+      :headers => {'Content-Type' => 'application/json'}
+    )
   end
-
 end

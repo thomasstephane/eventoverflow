@@ -11,7 +11,10 @@
     <p><%= @event.description %></p>
     <p>Event date: <%= @event.starts_at.strftime("%A %d %B %Y,  %l:%M %P") %></p>
     <p>Duration: <%= @event.duration_formated %></p>
-    <p>Location: <%= @event.location %></p>
+    <p>Location: <%= ((@event.venue_name + ", ") if @event.venue_name) + ((@event.street + ", ") if @event.street) + ((@event.zip.to_s + " ") if @event.zip) + ((@event.region + " ") if @event.region) + (@event.city if @event.city) %></p>
+    <% if @event.attendees_yes %>
+      <p><%= "Attendees: Yes: " + @event.attendees_yes.to_s + ", Maybe: " + @event.attendees_maybe.to_s %></p>
+    <% end %>
     <div class="links">
       <%= render 'events/links', :event => @event %>
     </div>
