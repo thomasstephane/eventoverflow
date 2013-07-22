@@ -1,6 +1,4 @@
-
 class CalendarsController < ApplicationController
-  protect_from_forgery
   
   def create
     @event = Event.find(params[:event_id])
